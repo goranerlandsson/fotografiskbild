@@ -1218,6 +1218,23 @@
     }
 
     let quizState = { key: null, index: 0, score: 0, answered: false, name: '' };
+
+    // Skickar automatiskt in quiz-resultatet till läraren via Google Formulär, i bakgrunden.
+    // Misslyckas det (t.ex. ingen internetuppkoppling) sparas resultatet ändå lokalt i quizResults
+    // som backup via "Se resultat" / CSV-export.
+    function submitQuizResultToForm(name, quizTitle, scoreText) {
+        const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdOm-VvLrfWTslIDDWRlwrcLz7O7IlHwfWwqzyc3ULyS8GA6A/formResponse';
+        const data = new URLSearchParams();
+        data.append('entry.568507212', name);
+        data.append('entry.1496477364', quizTitle);
+        data.append('entry.1392486438', scoreText);
+        fetch(formUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: data.toString()
+        }).catch(() => { /* skickas ändå "blint" pga no-cors, men vi ignorerar nätverksfel tyst */ });
+    }
     let quizResults = [];
 
     function openQuiz(key) {
@@ -1276,6 +1293,7 @@
                 total: quiz.questions.length,
                 time: new Date().toLocaleString('sv-SE')
             });
+            submitQuizResultToForm(quizState.name, quiz.title, `${quizState.score}/${quiz.questions.length}`);
             body.innerHTML = `
                 <div class="text-center space-y-6 py-8">
                     <div class="text-6xl">🎉</div>
