@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kursplanering: Fotografisk Bild 1 - Interaktiv</title>
+    <title>Fotografisk bild – kurs 1 och nivå 1</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Chosen Palette: Studio Warmth (Sand, Charcoal, Deep Amber) -->
@@ -69,6 +69,14 @@
             background: #b45309;
             border-radius: 50%;
         }
+        .updated-slide { font-size: clamp(1rem, 2.2vw, 1.45rem); line-height: 1.5; }
+        .updated-slide h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; margin: .5rem 0 1rem; }
+        .updated-slide ul { padding-left: 1.3em; list-style: disc; }
+        .updated-slide li { margin: .7em 0; }
+        .slide-timing { color: #fbbf24; font-size: 1rem; font-weight: 700; }
+        #slideContent { overflow-y: auto; min-height: 0; padding: 1rem 0; }
+        .lesson-plan, .teacher-notes { font-size: 1rem; line-height: 1.65; }
+        @media (max-width: 700px) { nav .h-16 { height: auto; min-height: 4rem; flex-wrap: wrap; gap: .5rem; padding: .5rem 0; } }
     </style>
 </head>
 <body class="min-h-screen">
@@ -98,7 +106,7 @@
                 <div class="w-8 h-8 bg-amber-700 rounded-lg flex items-center justify-center text-white font-bold">F1</div>
                 <span class="font-bold text-lg tracking-tight uppercase">Fotoplanering</span>
             </div>
-            <div class="hidden md:flex space-x-6">
+            <div class="flex space-x-3 overflow-x-auto text-sm">
                 <button onclick="showSection('overview', this)" class="nav-link py-5 px-1 active">Överblick</button>
                 <button onclick="showSection('modules', this)" class="nav-link py-5 px-1">Moduler & Simulator</button>
                 <button onclick="showSection('quiz', this)" class="nav-link py-5 px-1">Quiz</button>
@@ -115,12 +123,17 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div class="lg:col-span-2 space-y-8">
                 <div class="space-y-4">
-                    <h1 class="text-5xl font-black text-slate-900 leading-none">Kursstart v.36</h1>
-                    <p class="text-slate-600 text-xl max-w-2xl">Välkommen till Fotografisk Bild 1. Här hittar du din stegvisa guide till att bemästra kameran, från tekniska grunder till eget berättande.</p>
+                    <h1 class="text-5xl font-black text-slate-900 leading-none">Fotografisk bild</h1>
+                    <p class="text-slate-600 text-xl max-w-2xl">Från kamerans grunder till eget bildberättande. Gemensam undervisning för Fotografisk bild 1 och Fotografisk bild, nivå 1 (Gy25).</p>
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 space-y-3">
+                        <p><strong>Nästa steg: Lektion 3 – Slutartid och rörelse.</strong> Komplett lektionsplan, presentation och repetitionsquiz finns i kamerateknikmodulen.</p>
+                        <button onclick="openModal(1)" class="bg-amber-700 text-white rounded-xl px-5 py-3 font-bold">Öppna kamerateknik</button>
+                        <p class="text-sm text-slate-600">Arbetsversion 2 · Lektion 1–2 är bevarade. Lektion 3 är utvecklad; senare lektioner är fortsatt en grovplan. Veckor är preliminära tills lov och undervisningsdatum är inlagda.</p>
+                    </div>
                 </div>
 
                 <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100">
-                    <h3 class="text-xs font-black text-amber-700 uppercase tracking-[0.2em] mb-8 text-center">Kursens huvudmoduler per vecka</h3>
+                    <h3 class="text-xs font-black text-amber-700 uppercase tracking-[0.2em] mb-8 text-center">Grovplan: antal lektioner per modul</h3>
                     <div class="chart-container">
                         <canvas id="timelineChart"></canvas>
                     </div>
@@ -130,14 +143,14 @@
             <div class="space-y-6">
                 <div class="bg-slate-900 p-8 rounded-[2rem] text-white">
                     <h4 class="font-bold text-xl mb-4">Lektionsstruktur</h4>
-                    <p class="text-sm opacity-70 mb-6">En 150-minuterslektion: kort intro, mycket tid att fota ute, och en gemensam samling i slutet för nedladdning och bildkritik.</p>
+                    <p class="text-sm opacity-70 mb-6">Lektion 3: 150 minuter inklusive repetition, kamerastöd, fotografering, paus och bildsamtal. Fem par arbetar tillsammans; alla tar egna bilder.</p>
                     <div class="h-56">
                         <canvas id="lessonChart"></canvas>
                     </div>
                 </div>
                 <div class="bg-amber-100 p-8 rounded-[2rem] border border-amber-200">
                     <h4 class="font-bold text-amber-900 mb-2">Anpassat efter skolan</h4>
-                    <p class="text-sm text-amber-800">Planeringen och simulatorn är inställd efter våra kit-objektiv (18-55mm) med största bländare f/3.5-4.5.</p>
+                    <p class="text-sm text-amber-800">Sju Canon-kameror och en Nikon D90. Canon-objektiven är preliminärt 18–55 mm f/3,5–5,6; kontrollera märkningen. Använd största möjliga bländare vid vald brännvidd. Nikon-objektivet är ännu inte identifierat.</p>
                 </div>
             </div>
         </div>
@@ -164,22 +177,65 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="quizGrid"></div>
     </section>
 
-    <!-- GRADING SECTION -->
+    <!-- Teacher support: pedagogical mapping, not substitute grading criteria. -->
     <section id="grading" class="content-section hidden">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-black mb-4">Betygskrav</h2>
-                <p class="text-slate-500">Se vad som krävs för de olika betygsstegen i kursen.</p>
-            </div>
-            <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden">
-                <div class="flex bg-slate-50 border-b p-2">
-                    <button onclick="filterGrade('E', this)" class="grade-btn flex-1 py-4 rounded-2xl font-bold transition-all text-slate-400" id="btn-E">E-Nivå</button>
-                    <button onclick="filterGrade('C', this)" class="grade-btn flex-1 py-4 rounded-2xl font-bold transition-all text-slate-400" id="btn-C">C-Nivå</button>
-                    <button onclick="filterGrade('A', this)" class="grade-btn flex-1 py-4 rounded-2xl font-bold transition-all text-slate-400" id="btn-A">A-Nivå</button>
-                </div>
-                <div class="p-10 space-y-8" id="gradeDetails"></div>
-            </div>
+      <div class="max-w-4xl mx-auto space-y-6 teacher-notes">
+        <h2 class="text-4xl font-black">Bedömning & lärarstöd</h2>
+        <p>Gemensamma uppgifter, men rätt styrdokument för varje elev. Planeringsstödet nedan är en pedagogisk tolkning, inte fullständiga betygskriterier eller en omräkning mellan systemen. Quiz används för repetition, inte som betygsskala.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="bg-white border rounded-2xl p-6 space-y-3">
+            <h3 class="text-xl font-bold">Äldre kurs · Fotografisk bild 1</h3>
+            <p><strong>FOTFOT01 · 100 poäng</strong></p>
+            <p>Lektion 3 ger underlag om fotografisk teknik, visuella uttryck och motiverade bildval. Bildparet, elevens resonemang och lärarens observationer visar delar av kunnandet; de täcker inte hela kursen.</p>
+            <a class="underline text-amber-800" href="https://syllabuswebb.skolverket.se/syllabuscw/jsp/subject.htm?subjectCode=FOT&amp;tos=gy" target="_blank" rel="noopener">Skolverket: kursinnehåll och fullständiga betygskriterier</a>
+          </article>
+          <article class="bg-white border rounded-2xl p-6 space-y-3">
+            <h3 class="text-xl font-bold">Gy25 · Fotografisk bild, nivå 1</h3>
+            <p><strong>FOTO1000X · 100 poäng</strong></p>
+            <p>Lektion 3 ger underlag om hantering av utrustning, bildframställning, uttryck och samtal om bilder. Bildparet, elevens resonemang och lärarens observationer används inom nivåns innehåll; de täcker inte hela ämnet.</p>
+            <a class="underline text-amber-800" href="https://syllabuswebb.skolverket.se/syllabuscw/jsp/subject.htm?subjectCode=FOTO&amp;tos=gy" target="_blank" rel="noopener">Skolverket: nivåinnehåll och fullständiga betygskriterier</a>
+          </article>
         </div>
+        <article class="bg-amber-50 border border-amber-200 rounded-2xl p-6 space-y-4">
+          <h3 class="text-xl font-bold">Lektion 3: vad ska läraren uppmärksamma?</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Kan eleven hitta och ändra slutartiden samt hantera kameran säkert?</li>
+            <li>Kan eleven pröva två tider och skilja motivrörelse från kameraskakning?</li>
+            <li>Kan eleven välja egna bilder och förklara sambandet mellan teknik och uttryck?</li>
+            <li>Kan eleven beskriva en ändring efter återkoppling och undersöka resultatet?</li>
+          </ul>
+          <p>Anteckna kort: självständigt genomfört, stöd som behövdes och nästa steg. Samla individuellt underlag även vid pararbete. Extrautmaningen är frivillig och är inte en separat väg till ett visst betyg.</p>
+        </article>
+        <article class="bg-white border rounded-2xl p-6 space-y-4">
+          <h3 class="text-xl font-bold">Årsplanens kompletteringar – ännu inte detaljplanerade</h3>
+          <p>37 tillfällen finns i grovplanen. Lägg in undervisningsdatum, lov och bortfall innan veckorna används som schema. Slå vid behov ihop närliggande moment och skydda tid för återkoppling och omtag.</p>
+          <div class="overflow-x-auto"><table class="w-full text-left border-collapse">
+            <thead><tr><th class="p-3 border-b">Del av året</th><th class="p-3 border-b">Planerad komplettering</th></tr></thead>
+            <tbody>
+              <tr><td class="p-3 border-b">Från lektion 3</td><td class="p-3 border-b">Eget bildurval, kort reflektion och kontrollerad filöverföring varje gång. Respekt och skolans bildrutiner tas upp innan fotograferingen.</td></tr>
+              <tr><td class="p-3 border-b">Komposition & berättande</td><td class="p-3 border-b">Jämför äldre och samtida fotografier i olika genrer. Öva att skilja det vi ser från vår tolkning och diskutera bildens sammanhang.</td></tr>
+              <tr><td class="p-3 border-b">Ljus & studio</td><td class="p-3 border-b">Börja enkelt med fönsterljus och reflexskärm. Anpassa studiodelen efter utrustning; tre ljuskällor är inte ett krav för att lyckas.</td></tr>
+              <tr><td class="p-3 border-b">Bildbehandling</td><td class="p-3 border-b">Planera bildformat, upplösning, färg, visning och en faktisk utskrift eller kopia på papper. Ta upp hållbar användning av material.</td></tr>
+              <tr><td class="p-3 border-b">Berättande</td><td class="p-3 border-b">Fördjupa upphovsrätt och etiska bildval med aktuella källor. Diskutera även redigerade och AI-genererade bilder som lärarvald fördjupning, inte ett påstått eget nivå-1-krav.</td></tr>
+              <tr><td class="p-3">Slutprojekt</td><td class="p-3">Förslag: kombinera idé och research, planera kort, ge två fototillfällen inklusive omtag, bearbeta och redovisa. Anpassa efter kvarvarande tid.</td></tr>
+            </tbody>
+          </table></div>
+          <p class="text-sm text-slate-600">Källkontroll: 10 september 2026. Detta är en första innehållskoppling; en fullständig kontroll av hela årsplanens täckning återstår.</p>
+        </article>
+        <details class="bg-white border rounded-2xl p-6">
+          <summary class="font-bold cursor-pointer">Förbered inför lektion 3</summary>
+          <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Kontrollera kamerabeteckningar, objektivens märkning, laddning och minneskort. Canon-modellerna antas vara EOS 1000D/2000D tills de bekräftats.</li>
+            <li>Prova Tv/S och fast ISO 400 på varje kameratyp. Välj en ljus plats för kort slutartid och en skuggigare plats för lång slutartid.</li>
+            <li>Ordna fem par. Varje elev fotograferar ett eget bildpar. Övriga kameror kan användas som reserv.</li>
+            <li>Förbered en trygg rörelseövning utan trafik, till exempel en boll eller handrörelse. Ingen måste vara modell.</li>
+            <li>Bestäm och visa skolans godkända inlämningsplats. Ingen extern resultatkoppling är aktiverad.</li>
+            <li>Ta gärna med två egna jämförelsebilder. Presentationen fungerar utan dem; använd annars en kort livedemonstration.</li>
+            <li>Informera vid återblicken om att tidigare uppgift om f/4,5 vid full zoom kan vara fel. Lektion 1–2 och deras quiz är bevarade som historiskt material; använd inte den gamla objektivfrågan som kunskapsbedömning.</li>
+          </ul>
+          <p class="mt-4">Kamerastöd: <a class="underline" href="https://www.canon-europe.com/cameras/eos-2000d/specifications/" target="_blank" rel="noopener">Canon EOS 2000D</a> · <a class="underline" href="https://downloadcenter.nikonimglib.com/sv/products/9/D90.html" target="_blank" rel="noopener">Nikon D90 – manual</a></p>
+        </details>
+      </div>
     </section>
 
 </main>
@@ -217,17 +273,18 @@
                         <div id="exposureIndicator" class="mt-4 text-center font-bold text-sm uppercase tracking-widest">Exponering: Normal</div>
                     </div>
                     <div class="w-full lg:w-1/3 space-y-6">
-                        <h4 class="text-xl font-black italic">Simulator: Kit-objektiv</h4>
-                        <p class="text-xs text-slate-400">Notera: Största bländare är här begränsad till f/3.5, precis som på våra skolkameror.</p>
+                        <h4 class="text-xl font-black italic">Simulator: exponering</h4>
+                        <p class="text-sm text-slate-600">Förenklad M-modell med fast ljus, brännvidd och avstånd. Start: f/5,6 · 1/125 s · ISO 400. Visar relativ ljushet, inte en ljusmätning av ditt motiv. f/3,5 är inte tillgängligt vid alla zoomlägen. Oskärpa och brus är schematiska, inte exakta förhandsvisningar.</p>
+                        <button onclick="resetSimulator()" class="border border-slate-400 rounded-xl p-2">Återställ reglagen</button>
 
                         <div class="space-y-2">
-                            <label for="inputAperture" class="flex justify-between text-xs font-bold text-slate-500 uppercase"><span>Bländare (f)</span> <span id="valAperture">f/3.5</span></label>
-                            <input type="range" id="inputAperture" min="0" max="5" step="1" value="0" class="w-full" aria-label="Bländarvärde">
+                            <label for="inputAperture" class="flex justify-between text-xs font-bold text-slate-500 uppercase"><span>Bländare (f)</span> <span id="valAperture">f/5.6</span></label>
+                            <input type="range" id="inputAperture" min="0" max="5" step="1" value="1" class="w-full" aria-label="Bländarvärde">
                         </div>
 
                         <div class="space-y-2">
-                            <label for="inputShutter" class="flex justify-between text-xs font-bold text-slate-500 uppercase"><span>Slutartid (s)</span> <span id="valShutter">1/500</span></label>
-                            <input type="range" id="inputShutter" min="0" max="8" step="1" value="4" class="w-full" aria-label="Slutartid">
+                            <label for="inputShutter" class="flex justify-between text-xs font-bold text-slate-500 uppercase"><span>Slutartid (s)</span> <span id="valShutter">1/125</span></label>
+                            <input type="range" id="inputShutter" min="0" max="8" step="1" value="3" class="w-full" aria-label="Slutartid">
                         </div>
 
                         <div class="space-y-2">
@@ -306,7 +363,7 @@
             {
                 id: 1, title: "Kamerateknik", weeks: "v.36-41", icon: "📷",
                 desc: "Bemästra exponeringstriangeln med skolans utrustning.",
-                goals: ["Förstå ISO/Bländare/Slutartid", "Hantera kit-objektivets begränsningar (f/3.5-4.5)", "Fotografera i Manuellt läge"],
+                goals: ["Förklara sambandet mellan bländare, slutartid och ISO", "Anpassa inställningar efter motiv, ljus och tillgängligt objektiv", "Välja teknik utifrån bildens uttryck och prova manuellt läge"],
                 lessons: [
                     {
                         title: "Inspiration, Rutiner & Kamera-Safari",
@@ -314,10 +371,15 @@
                         practical: "Övning: Kamera-Safari i par. Ta 4 specifika bilder (Detaljen, Grodperspektivet, Inramningen och Mönstret) med kameran i Auto/P-läge."
                     },
                     { title: "Bländaren & Skärpedjup", theory: "Hur bländaren styr ljus och oskärpa. Varför kit-objektivet har f/4.5 som gräns vid zoom.", practical: "Övning 'Suddig bakgrund'. Ställ in största möjliga bländare (t.ex. f/4.5). Jämför med en bild tagen på f/16." },
-                    { title: "Slutartiden & Rörelse", theory: "Frysa ögonblick vs. skapa rörelseoskärpa.", practical: "Övning 'Fånga farten'. Gå ut och fotografera något som rör sig. Testa 1/1000s och 1/15s." },
-                    { title: "ISO & Digitalt brus", theory: "Ljuskänslighet när ljuset inte räcker till.", practical: "Hitta en mörk vrå. Fotografera med ISO 100, 1600 och 6400. Jämför bruset i datorn." },
-                    { title: "Manuellt läge (M)", theory: "Balansera de tre benen i exponeringstriangeln.", practical: "Använd simulatorn först. Gå sedan ut och ta tre perfekt exponerade bilder i fullt manuellt läge." },
-                    { title: "Examination Teknik", theory: "RAW-formatet och teknisk kontroll.", practical: "Praktiskt prov: Lös tre specifika ljusutmaningar på tid utan att använda automatik." }
+                    {
+                        title: "Slutartiden & Rörelse",
+                        theory: "Hur slutartiden påverkar rörelse och ljus. Skilj motivrörelse, skakningsoskärpa och fel fokus. Canon: Tv. Nikon D90: S.",
+                        practical: "Fånga farten: arbeta i par men ta egna bilder. Jämför en kort och en lång slutartid, välj ett eget bildpar och förklara skillnaden. Full arbetsgång finns nedan.",
+                        plan: true
+                    },
+                    { title: "ISO & Digitalt brus", theory: "ISO, bildens ljushet och brus. Högre ISO släpper inte in mer ljus genom objektivet.", practical: "Grovplan: jämför ISO 400, 800 och 1600 på samma kamera och motiv i stabilt ljus. Använd Av/A, samma bländare och kamerastöd; kameran anpassar slutartiden. Jämför lika ljusa bilder i samma förstoring. Högre ISO är en frivillig jämförelse på kameror som stöder det." },
+                    { title: "Manuellt läge (M)", theory: "Balansera bländare, slutartid och fast ISO. Introducera RAW/JPEG före teknikuppgiften.", practical: "Grovplan: börja i simulatorn. Fotografera sedan samma motiv med tre avsiktliga exponeringsval. Förklara vad du ändrade och varför; anpassa ljusheten till ditt bilduttryck." },
+                    { title: "Teknikuppgift & återkoppling", theory: "Samla bilder och förklara sambandet mellan inställningar och uttryck.", practical: "Grovplan: visa skärpedjup, rörelse och ett medvetet exponeringsval. Motivera dina inställningar, få återkoppling och gör ett omtag. M-läge tränas, men snabbhet och visst kameraläge är inte egna betygskriterier." }
                 ]
             },
             {
@@ -325,7 +387,7 @@
                 desc: "Konsten att organisera bildelement för att skapa spänning.",
                 goals: ["Tredjedelsregeln", "Ledande linjer", "Perspektiv"],
                 lessons: [
-                    { title: "Tredjedelsregeln & gyllene snittet", theory: "Varför symmetri ibland är tråkigt. Aktivera rutnätet i kameran som stöd.", practical: "Fota 5 miljöer där motivet medvetet placeras i kanten av bilden, längs rutnätslinjerna." },
+                    { title: "Tredjedelar & centrering", theory: "Jämför placering nära tredjedelslinjer med centrering. Båda kan fungera; välj efter bildens avsikt. Tredjedelsregeln och gyllene snittet är inte samma indelning.", practical: "Fotografera samma motiv centrerat och nära en tredjedelslinje. Jämför vad blicken dras till och motivera ditt val." },
                     { title: "Ledande linjer", theory: "Hur linjer (vägar, räcken, trappor) styr betraktarens blick genom bilden.", practical: "Hitta och fotografera 3 tydliga ledande linjer på skolan som leder blicken mot ett huvudmotiv." },
                     { title: "Perspektiv & vinklar", theory: "Fågelperspektiv vs. grodperspektiv – hur kameravinkeln förändrar berättelsen och maktbalansen i bilden.", practical: "Fotografera samma objekt från tre olika vinklar (rakt framifrån, uppifrån, nerifrån) och jämför uttrycket." },
                     { title: "Bildbalans & negativt utrymme", theory: "Symmetrisk kontra asymmetrisk balans, och hur tomt utrymme kan förstärka ett motiv.", practical: "Ta en symmetrisk bild och en bild där negativt utrymme används för att lyfta fram motivet." },
@@ -368,7 +430,7 @@
                     { title: "Bildreportaget", theory: "Hur man berättar en story utan ord.", practical: "Planera och fota ett kort reportage på skolan." },
                     { title: "Bildsekvenser & flöde", theory: "Hur en serie bilder bygger en berättelse: etablering, detalj och avslut.", practical: "Fotografera en sekvens om minst 5 bilder som berättar ett händelseförlopp." },
                     { title: "Bildurval & redigering av en serie", theory: "Hur man väljer bort bilder och bygger ett tydligt flöde i en serie.", practical: "Från en tidigare fotosession, välj ut och ordna 8 bilder till ett sammanhängande bildspel." },
-                    { title: "Etik & lagar kring fotografering", theory: "Offentlighetsprincipen, samtycke och publicering av bilder på personer, samt grunderna i upphovsrätt.", practical: "Diskussionsövning i grupp, följt av en kort skriftlig sammanfattning av vad som gäller vid fotografering av andra i skolmiljö." },
+                    { title: "Etik & lagar kring fotografering", theory: "Grovplan: skilj mellan att fotografera, lagra och publicera. Upphovsrätt, integritet och skolans godkända rutiner. Rättsligt innehåll ska källkontrolleras innan lektionen färdigställs.", practical: "Diskutera bildfall och motivera respektfulla handlingsalternativ. Inga elevbilder publiceras öppet som del av övningen." },
                     { title: "Text & bild tillsammans", theory: "Hur bildtext och rubrik stärker eller förändrar tolkningen av en bild.", practical: "Skriv bildtexter till din bildserie och undersök hur de förändrar upplevelsen av bilderna." },
                     { title: "Examination Berättande", theory: "Repetition av narrativa tekniker i bildberättande.", practical: "Praktiskt prov: producera ett kort bildreportage (5–6 bilder) om ett självvalt ämne på skolan." }
                 ]
@@ -386,12 +448,7 @@
                     { title: "Examination: Redovisning & bildanalys", theory: "Hur man presenterar och analyserar sitt eget arbete med fotografiska termer.", practical: "Presentera slutprojektet för klassen och analysera tre av bilderna muntligt." }
                 ]
             }
-        ],
-        grading: {
-            "E": [{ cat: "Teknik", text: "Använder kamerans grundläggande funktioner med tillfredsställande resultat." }, { cat: "Analys", text: "Beskriver bilder med enkel användning av fotografiska termer." }],
-            "C": [{ cat: "Teknik", text: "Gör medvetna val av inställningar utifrån motiv och ljusförhållanden." }, { cat: "Analys", text: "Analyserar bilder med relativt god användning av fotografiska facktermer." }],
-            "A": [{ cat: "Teknik", text: "Hanterar kameratekniken med precision även i svåra ljussituationer." }, { cat: "Analys", text: "Analyserar och värderar bilder nyanserat med djup förståelse." }]
-        }
+        ]
     };
 
     // --- PRESENTATIONS DATA (keyed by moduleId + lessonNumber, e.g. m1l1) ---
@@ -838,132 +895,91 @@
             ]
         },
         m1l3: {
-            badge: "Lektion 3",
-            label: "Presentation Lektion 3",
+            badge: "Lektion 3", label: "Presentation Lektion 3",
             slides: [
-        {
-            title: "Slutartiden & Rörelse",
-            content: `
-                <div class="text-center space-y-6">
-                    <span class="text-amber-500 font-bold uppercase tracking-widest text-sm">v.38 • Lektion 3</span>
-                    <h1 class="text-5xl font-black tracking-tight text-white">Slutartiden & Rörelse</h1>
-                    <p class="text-xl text-slate-300 max-w-2xl mx-auto">Förra veckan styrde vi skärpedjupet med bländaren. Idag styr vi hur rörelse fångas i bilden.</p>
-                    <div class="pt-8 flex flex-col md:flex-row justify-center gap-6 text-left">
-                        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl max-w-xs">
-                            <div class="text-amber-500 font-bold mb-1">1. Slutartiden</div>
-                            <div class="text-sm text-slate-400">Hur länge sensorn exponeras för ljus.</div>
-                        </div>
-                        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl max-w-xs">
-                            <div class="text-amber-500 font-bold mb-1">2. Frysa vs. sudda</div>
-                            <div class="text-sm text-slate-400">Två helt olika sätt att visa rörelse.</div>
-                        </div>
-                        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl max-w-xs">
-                            <div class="text-amber-500 font-bold mb-1">3. Fånga farten</div>
-                            <div class="text-sm text-slate-400">Dagens praktiska övning, ute på skolan.</div>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
-        {
-            title: "Vad är slutartiden?",
-            content: `
-                <div class="space-y-6">
-                    <h2 class="text-3xl font-bold text-amber-400 text-center mb-4">Hur länge kameran "tittar"</h2>
-                    <p class="text-center text-slate-300 max-w-2xl mx-auto text-sm">Slutartiden anger hur länge slutaren är öppen och sensorn exponeras för ljus. Den mäts i sekunder eller bråkdelar av sekunder.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-                        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-center">
-                            <div class="text-3xl mb-4">⚡</div>
-                            <h3 class="font-bold text-lg text-white mb-2">1/1000s</h3>
-                            <p class="text-xs text-slate-400">Mycket kort tid. Fryser även snabb rörelse. Kräver mycket ljus.</p>
-                        </div>
-                        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-center">
-                            <div class="text-3xl mb-4">🚶</div>
-                            <h3 class="font-bold text-lg text-white mb-2">1/125s</h3>
-                            <p class="text-xs text-slate-400">Mellanlång tid. Fryser normal rörelse, t.ex. gående personer.</p>
-                        </div>
-                        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-center">
-                            <div class="text-3xl mb-4">🌊</div>
-                            <h3 class="font-bold text-lg text-white mb-2">1/15s</h3>
-                            <p class="text-xs text-slate-400">Lång tid. Rörliga motiv blir suddiga i bilden.</p>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
-        {
-            title: "Frysa ögonblicket eller visa rörelse?",
-            content: `
-                <div class="space-y-6">
-                    <h2 class="text-3xl font-bold text-amber-400 text-center mb-8">Två sätt att berätta om rörelse</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
-                            <h3 class="font-bold text-lg text-white mb-2">❄️ Frysa ögonblicket</h3>
-                            <p class="text-sm text-slate-300">Kort slutartid (t.ex. 1/1000s). Motivet blir knivskarpt mitt i rörelsen. Passar sport och lek.</p>
-                        </div>
-                        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
-                            <h3 class="font-bold text-lg text-white mb-2">💨 Rörelseoskärpa</h3>
-                            <p class="text-sm text-slate-300">Lång slutartid (t.ex. 1/15s eller längre). Rörliga delar blir suddiga och visar fart och energi. Passar vattenfall, trafik.</p>
-                        </div>
-                    </div>
-                    <p class="text-center text-sm text-amber-200/70 pt-4 italic">Diskussion: Vilken känsla vill ni skapa – stillhet eller fart?</p>
-                </div>
-            `
-        },
-        {
-            title: "Bonusteknik: Panorering",
-            content: `
-                <div class="space-y-6 max-w-2xl mx-auto">
-                    <div class="bg-amber-950/50 border border-amber-600/50 p-6 rounded-3xl text-center">
-                        <div class="text-4xl mb-2">🎯</div>
-                        <h2 class="text-xl font-black text-amber-300">Skarpt motiv, suddig bakgrund – i rörelse</h2>
-                        <p class="text-sm text-white mt-2">Vid panorering följer ni motivet med kameran samtidigt som ni tar bilden på en lite längre slutartid. Motivet blir skarpt, bakgrunden blir strimmig.</p>
-                    </div>
-                    <p class="text-center text-xs text-slate-400">Ni har redan sett exemplet på gokarten på en av de tidigare slidesen – det är precis den här tekniken som skapar den effekten.</p>
-                </div>
-            `
-        },
-        {
-            title: "Dagens Övning: Fånga farten",
-            content: `
-                <div class="space-y-6">
-                    <div class="text-center">
-                        <span class="bg-amber-500/20 text-amber-300 text-xs font-bold px-4 py-1.5 rounded-full border border-amber-500/30">Praktisk övning • ca 40 min</span>
-                        <h2 class="text-3xl font-black text-white mt-3">Fotografera något som rör sig</h2>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
-                            <span class="text-amber-500 font-black text-lg">1. Frys rörelsen</span>
-                            <p class="text-xs text-slate-300 mt-1">Ställ in en kort slutartid (t.ex. 1/1000s) och fotografera något som springer, cyklar eller kastar en boll.</p>
-                        </div>
-                        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
-                            <span class="text-amber-500 font-black text-lg">2. Sudda rörelsen</span>
-                            <p class="text-xs text-slate-300 mt-1">Ta exakt samma motiv med en lång slutartid (t.ex. 1/15s). Håll kameran stilla och jämför resultatet.</p>
-                        </div>
-                    </div>
-                    <p class="text-center text-xs text-slate-400 pt-2">Testa gärna panorering också om ni hinner!</p>
-                </div>
-            `
-        },
-        {
-            title: "Avslutning & Utcheckning",
-            content: `
-                <div class="text-center space-y-6 max-w-2xl mx-auto">
-                    <div class="text-5xl">💾</div>
-                    <h2 class="text-3xl font-black text-white">Gör följande innan ni går:</h2>
-                    <div class="bg-slate-900 p-6 rounded-3xl border border-slate-800 text-left space-y-3 text-sm">
-                        <p class="text-slate-300">1. Sätt in minneskortet i datorn och för över era bilder.</p>
-                        <p class="text-slate-300">2. Välj ut er bästa "fryst" bild och er bästa "suddiga" bild inför bildkritiken.</p>
-                        <p class="text-slate-300">3. Formatera minneskortet.</p>
-                        <p class="text-slate-300">4. Stäng av kameran och lämna tillbaka den i väskan.</p>
-                    </div>
-                    <p class="text-amber-400 font-bold text-sm">Bra jobbat! Nästa vecka: ISO och digitalt brus.</p>
-                </div>
-            `
-        }
+                { title: "Idag: styr rörelsen", content: lessonSlide("Slutartid & rörelse", "Lektion 3 · 150 minuter", [
+                    "Du ska kunna ändra slutartiden och undersöka hur rörelse syns i bilden.",
+                    "Du ska välja två egna bilder och förklara hur dina inställningar påverkar uttrycket.",
+                    "Vi arbetar i fem par. Byt fotograf efter första bildparet – båda ska använda kameran."
+                ]) },
+                { title: "Återblick på bländaren", content: lessonSlide("Vad hände med bakgrunden?", "0–15 min · repetition och samtal", [
+                    "Visa ett tidigare bildpar om du har det. Vad ändrades? Vad var lika? Ingen tidigare bild behövs för att delta i samtalet.",
+                    "Ett lägre f-tal ger större öppning. Skärpedjupet påverkas också av bland annat avstånd och brännvidd.",
+                    "Våra Canon-objektiv är preliminärt 18–55 mm f/3,5–5,6. Vid full zoom kan största öppningen vara f/5,6. Kontrollera objektivet; äldre material kan ange f/4,5."
+                ]) },
+                { title: "Kort eller lång tid?", content: lessonSlide("1/1000 s är kortare än 1/15 s", "15–30 min · genomgång och demonstration", [
+                    "Kort slutartid kan frysa rörelse. Lång slutartid kan låta rörelsen synas som ett spår.",
+                    "1/1000 och 1/15 sekund är startförslag – inte garantier. Prova, granska och anpassa efter rörelsen och ljuset.",
+                    "Med oförändrad bländare och ISO ger längre tid mer ljus. I Tv/S ändrar kameran bländaren för att kompensera, så länge objektivet räcker till.",
+                    "Läraren visar två bilder eller fotograferar en rörlig hand eller boll med två olika tider. Vad är stilla, och vad rör sig?"
+                ]) },
+                { title: "Ställ in kameran", content: lessonSlide("Du väljer tiden – kameran väljer bländaren", "30–40 min · alla provar reglagen", [
+                    "Canon: vrid lägesratten till Tv. Vrid inställningsratten nära avtryckaren för att välja slutartid.",
+                    "Nikon D90: välj S. Välj slutartid med den bakre inställningsratten.",
+                    "Starta med fast ISO 400, inte Auto ISO. Läraren visar ISO-knappen eller menyn på respektive modell. Börja utan blixt.",
+                    "Kontrollera fokus genom sökaren. Använd samma brännvidd och ungefär samma avstånd i jämförelsen."
+                ]) },
+                { title: "Grunduppgift: Fånga farten", content: lessonSlide("Två tider · samma slags rörelse", "40–65 min · första fotopasset", [
+                    "Välj en trygg, upprepningsbar rörelse: en boll, hand eller frivillig person som går. Undvik trafik och riskfyllda hopp.",
+                    "Bild A: börja vid 1/1000 s. Fotografera några försök där rörelsen ska bli tydlig och skarp.",
+                    "Bild B: börja vid 1/15 s. Håll kameran stilla med säkert stöd; låt motivet röra sig. Behåll en stillastående bakgrund i bilden.",
+                    "Titta på resultatet och ändra vid behov. Byt roller så att båda tar ett eget bildpar."
+                ]) },
+                { title: "När det inte blir som du tänkt", content: lessonSlide("Felsök en sak i taget", "Stöd under båda fotopassen", [
+                    "För mörkt vid kort tid? Sök bättre ljus, prova 1/500 s eller höj ISO till 800/1600. Kontrollera resultat och exponeringsvarning.",
+                    "För ljust vid lång tid? Sänk ISO inom kamerans vanliga område eller gå till skugga. Ändra tiden om det fortfarande behövs.",
+                    "Hela bilden får rörelsespår? Stöd kameran bättre. Bakgrunden skarp men motivet suddigt? Det kan vara avsedd motivrörelse.",
+                    "Fel del skarp utan rörelsespår? Kontrollera fokus. Kort tid löser inte fel fokus. Läraren hjälper vid behov med följande autofokus."
+                ]) },
+                { title: "Paus, omtag och frivillig utmaning", content: lessonSlide("Förbättra – eller prova panorering", "65–75 min paus · 75–100 min andra fotopasset", [
+                    "Prioritera ett eget fungerande bildpar. Visa en bild för läraren och prova en förbättring.",
+                    "Frivilligt: prova panorering på cirka 1/30–1/60 s. Följ ett motiv som rör sig tvärs över bilden och fortsätt rörelsen efter avtrycket.",
+                    "Målet är ett relativt skarpt motiv mot en strimmig bakgrund. Det kräver flera försök; alla behöver inte hinna med det."
+                ]) },
+                { title: "Välj och förklara", content: lessonSlide("Ditt bildpar och din tanke", "100–120 min · överföring, urval och inlämning", [
+                    "Kopiera bilderna till den plats läraren har anvisat. Öppna dem och kontrollera att överföringen fungerat.",
+                    "Välj två egna bilder: en som fryser rörelse och en som visar rörelse. Spara originalen och använd kopior vid eventuell export.",
+                    "Ange slutartid, bländare och ISO från bildinformationen. Besvara: Vad ville jag visa? Vad ändrade jag? Vad skulle jag prova nästa gång?",
+                    "Lämna bildparet och en kort text på skolans anvisade plats. Förklaringen kan också göras muntligt med läraren."
+                ]) },
+                { title: "Bildsamtal och säker avslutning", content: lessonSlide("Se skillnaden – säkra bilderna", "120–140 min bildsamtal · 140–150 min utcheckning", [
+                    "Visa några bildpar. Beskriv först vad ni ser, sedan hur ni tolkar fart, stillhet eller känsla. Ge ett konkret förbättringsförslag.",
+                    "Kontrollera att dina bilder finns på rätt plats och går att öppna. Vid pararbete ska bådas bilder vara säkrade.",
+                    "Formatera i kameran först efter lärarens klartecken och verifierad lagring enligt skolans rutin. Vid osäkerhet: formatera inte.",
+                    "Återställ och lämna kameran i väskan. Nästa gång börjar vi med quiz om slutartid och går vidare till ISO."
+                ]) }
             ]
         }
     };
+
+    function lessonSlide(heading, timing, points) {
+        return '<div class="updated-slide"><p class="slide-timing">' + timing + '</p><h2>' + heading + '</h2><ul>' + points.map(p => '<li>' + p + '</li>').join('') + '</ul></div>';
+    }
+
+    const lessonThreeSchedule = [
+        ["0–15", "Repetition", "Återblick på bländaren, elevernas erfarenheter och korrigerad objektivuppgift."],
+        ["15–30", "Genomgång", "Slutartid, ljus och skillnaden mellan motivrörelse och kameraskakning. Visa eller demonstrera ett bildpar."],
+        ["30–40", "Kamerastöd", "Tv/S, fast ISO 400, fokus och provbild. Läraren kontrollerar att alla kan ändra tiden."],
+        ["40–65", "Fotopass 1", "Två slutartider på samma slags rörelse. Byt roller; varje elev fotograferar."],
+        ["65–75", "Paus", "Lägg kamerorna säkert."],
+        ["75–100", "Fotopass 2", "Återkoppling, omtag och eventuell panorering."],
+        ["100–120", "Urval & inlämning", "Överför och kontrollera bilderna. Välj två egna bilder och redovisa inställningar samt reflektion."],
+        ["120–140", "Bildsamtal", "Jämför uttryck. Låt flera elever förklara ett val och ett nästa steg."],
+        ["140–150", "Utcheckning", "Kontrollera lagring för båda i paret. Formatera först efter klartecken; lämna utrustningen." ]
+    ];
+
+    function lessonThreePlan() {
+        return '<div class="lesson-plan space-y-5 mt-6 border-t pt-5">' +
+            '<h6 class="font-bold text-xl">Mål och redovisning</h6><p>Ändra slutartiden, undersök dess inverkan på rörelse och förklara ett eget bildpar. Lämna två egna bilder med slutartid, bländare och ISO samt en kort skriftlig eller muntlig reflektion.</p>' +
+            '<p><strong>Arbeta i fem par.</strong> Turas om som fotograf och medhjälpare. Bildparet ska vara ditt eget. Ingen behöver vara modell: använd exempelvis en boll eller en rörlig hand. Fotografera respektfullt och följ skolans rutiner.</p>' +
+            '<div class="overflow-x-auto"><table class="w-full text-left"><thead><tr><th class="p-2">Minuter</th><th class="p-2">Moment</th><th class="p-2">Arbetsgång</th></tr></thead><tbody>' +
+            lessonThreeSchedule.map(row => '<tr>' + row.map(cell => '<td class="p-2 border-t align-top">' + cell + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>' +
+            '<div class="bg-amber-50 rounded-2xl p-5"><h6 class="font-bold">Din foto-checklista</h6><ol class="list-decimal pl-6 space-y-2 mt-2"><li>Canon: Tv. Nikon: S. Börja med fast ISO 400, utan blixt.</li><li>Välj en trygg, upprepningsbar rörelse. Behåll brännvidd och ungefärligt avstånd.</li><li>Prova en kort tid, till exempel 1/1000 s. Kontrollera ljus och fokus.</li><li>Prova en lång tid, till exempel 1/15 s, med kameran stödd. Låt bara motivet röra sig.</li><li>Granska, ändra och ta om. Tiderna är startförslag. Byt roller så att båda får egna bilder.</li><li>Välj ett bildpar och förklara: Vad ville jag visa? Vad ändrade jag? Vad provar jag nästa gång?</li></ol></div>' +
+            '<p><strong>Felsökning:</strong> Mörkt vid kort tid: bättre ljus, något längre tid eller ISO 800/1600. Ljust vid lång tid: lägre ISO eller skugga. Hela bilden suddig: kontrollera stöd och fokus. Kameran kan bara kompensera inom objektivets bländarområde.</p>' +
+            '<p><strong>Fördjupning:</strong> prova panorering vid 1/30–1/60 s. Grunduppgiften går först. <strong>Reserv vid dåligt väder:</strong> prova handrörelse eller en boll vid ett ljust fönster med lärarens stöd.</p>' +
+            '<p><strong>Utcheckning:</strong> öppna och kontrollera sparade bilder för båda i paret. Formatera i kameran endast efter lärarens klartecken och verifierad lagring. Ingen publicering eller extern resultatöverföring ingår.</p>' +
+            '<button onclick="openQuiz(&quot;m1l3&quot;)" class="bg-slate-900 text-white px-5 py-3 rounded-xl">Repetitionsquiz – används nästa lektion</button></div>';
+    }
 
     let currentSlide = 0;
     let currentDeck = [];
@@ -1014,10 +1030,25 @@
     });
 
     // --- SIMULATOR LOGIC (Anpassad för Kit-objektiv) ---
-    let simSettings = { ap: 0, sh: 4, iso: 2 };
+    let simSettings = { ap: 1, sh: 3, iso: 2 };
     const apValues = ["f/3.5", "f/5.6", "f/8.0", "f/11", "f/16", "f/22"];
     const shValues = ["1/1000", "1/500", "1/250", "1/125", "1/60", "1/30", "1/15", "1/8", "1s"];
     const isoValues = ["100", "200", "400", "800", "1600", "3200"];
+
+    function exposureStops(settings) {
+        const aperture = [3.5, 5.6, 8, 11, 16, 22][settings.ap];
+        const seconds = [1/1000, 1/500, 1/250, 1/125, 1/60, 1/30, 1/15, 1/8, 1][settings.sh];
+        const iso = Number(isoValues[settings.iso]);
+        return Math.log2(seconds / (1/125)) + Math.log2(iso / 400) - 2 * Math.log2(aperture / 5.6);
+    }
+
+    function resetSimulator() {
+        simSettings = { ap: 1, sh: 3, iso: 2 };
+        document.getElementById('inputAperture').value = 1;
+        document.getElementById('inputShutter').value = 3;
+        document.getElementById('inputISO').value = 2;
+        updateSimulator();
+    }
 
     function updateSimulator() {
         const canvas = document.getElementById('simCanvas');
@@ -1026,11 +1057,13 @@
         const w = canvas.width;
         const h = canvas.height;
 
-        const exposure = (simSettings.iso) - (simSettings.ap) - (simSettings.sh - 4);
+        const exposure = exposureStops(simSettings);
 
         ctx.clearRect(0, 0, w, h);
 
         const blurAmount = (5 - simSettings.ap) * 4;
+        ctx.fillStyle = "#64748b";
+        ctx.fillRect(0, 0, w, h);
         ctx.fillStyle = "#334155";
         ctx.filter = `blur(${blurAmount}px)`;
         ctx.fillRect(50, 100, 100, 100);
@@ -1054,12 +1087,12 @@
         }
 
         let alpha = 0;
-        if (exposure > 1.5) {
-            alpha = Math.min((exposure - 1) * 0.2, 0.8);
+        if (exposure > 0) {
+            alpha = Math.min(1 - Math.pow(2, -exposure), 0.95);
             ctx.fillStyle = `rgba(255,255,255,${alpha})`;
             ctx.fillRect(0,0,w,h);
-        } else if (exposure < -1.5) {
-            alpha = Math.min((Math.abs(exposure) - 1) * 0.2, 0.8);
+        } else if (exposure < 0) {
+            alpha = Math.min(1 - Math.pow(2, exposure), 0.95);
             ctx.fillStyle = `rgba(0,0,0,${alpha})`;
             ctx.fillRect(0,0,w,h);
         }
@@ -1069,13 +1102,13 @@
         document.getElementById('valISO').innerText = isoValues[simSettings.iso];
 
         const indicator = document.getElementById('exposureIndicator');
-        if (exposure > 2) { indicator.innerText = "Överexponerat ☀️"; indicator.style.color = "#dc2626"; }
-        else if (exposure < -2) { indicator.innerText = "Underexponerat 🌑"; indicator.style.color = "#2563eb"; }
-        else { indicator.innerText = "Bra exponering ✅"; indicator.style.color = "#16a34a"; }
+        indicator.innerText = `Relativ ljushet: ${exposure >= 0 ? '+' : ''}${exposure.toFixed(1)} steg jämfört med start`;
+        indicator.style.color = Math.abs(exposure) < 0.15 ? '#15803d' : '#334155';
     }
 
     // --- APP NAVIGATION & RENDER ---
     function showSection(id, btn) {
+        init();
         document.querySelectorAll('.content-section').forEach(s => s.classList.add('hidden'));
         document.getElementById(id).classList.remove('hidden');
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -1130,6 +1163,7 @@
                                 <span class="text-[10px] font-black uppercase block mb-1">Praktisk Uppgift</span>${less.practical}
                             </div>
                         </div>
+                        ${less.plan ? lessonThreePlan() : ""}
                     </div>
                 </div>
             `}).join('')}
@@ -1148,7 +1182,9 @@
         document.body.style.overflow = 'auto';
     }
 
+    let appInitialized = false;
     function init() {
+        if (appInitialized) return;
         const grid = document.getElementById('moduleGrid');
         courseData.modules.forEach(m => {
             const card = document.createElement('div');
@@ -1166,6 +1202,15 @@
 
         initQuizPage();
 
+        document.getElementById('inputAperture').oninput = (e) => { simSettings.ap = parseInt(e.target.value); updateSimulator(); };
+        document.getElementById('inputShutter').oninput = (e) => { simSettings.sh = parseInt(e.target.value); updateSimulator(); };
+        document.getElementById('inputISO').oninput = (e) => { simSettings.iso = parseInt(e.target.value); updateSimulator(); };
+        appInitialized = true;
+
+        // Optional charts must never prevent lessons, quizzes or simulator controls from starting.
+        if (typeof Chart !== 'function') return;
+        try {
+
         new Chart(document.getElementById('timelineChart').getContext('2d'), {
             type: 'bar',
             data: {
@@ -1178,8 +1223,8 @@
         new Chart(document.getElementById('lessonChart').getContext('2d'), {
             type: 'doughnut',
             data: {
-                labels: ['Intro/genomgång', 'Praktiskt arbete (fota)', 'Nedladdning & bildkritik', 'Avslutning/städ'],
-                datasets: [{ data: [20, 80, 45, 5], backgroundColor: ['#f59e0b', '#ffffff', '#475569', '#1e293b'], borderWidth: 0 }]
+                labels: ['Repetition & genomgång', 'Kamerastöd & fotografering', 'Paus', 'Urval & bildsamtal', 'Utcheckning'],
+                datasets: [{ data: [30, 60, 10, 40, 10], backgroundColor: ['#f59e0b', '#ffffff', '#94a3b8', '#475569', '#64748b'], borderWidth: 0 }]
             },
             options: {
                 responsive: true, maintainAspectRatio: false, cutout: '70%',
@@ -1190,11 +1235,9 @@
             }
         });
 
-        document.getElementById('inputAperture').oninput = (e) => { simSettings.ap = parseInt(e.target.value); updateSimulator(); };
-        document.getElementById('inputShutter').oninput = (e) => { simSettings.sh = parseInt(e.target.value); updateSimulator(); };
-        document.getElementById('inputISO').oninput = (e) => { simSettings.iso = parseInt(e.target.value); updateSimulator(); };
-
-        filterGrade('E', document.getElementById('btn-E'));
+        } catch (error) {
+            console.warn('Översiktsdiagrammen kunde inte visas. Lektionsinnehållet är tillgängligt.', error);
+        }
     }
 
     // --- QUIZ PAGE & RUNTIME ---
@@ -1217,25 +1260,24 @@
         });
     }
 
-    let quizState = { key: null, index: 0, score: 0, answered: false, name: '' };
+    // Repetitionsquiz för lektion 3. Ingen extern inskickning.
+    quizzes.m1l3 = {
+        title: "Lektion 3: Slutartid & rörelse", desc: "Sex frågor att använda i början av lektion 4.", icon: "⏱️",
+        questions: [
+            { prompt: "Du vill frysa en snabb rörelse. Vilken tid är den bästa utgångspunkten av dessa?", options: [{id:"a",text:"1/15 s"},{id:"b",text:"1/1000 s"},{id:"c",text:"1 s"},{id:"d",text:"Slutartiden påverkar inte rörelse"}], correct:"b", explanation:"1/1000 s är kortast och ger bäst utgångspunkt här. Resultatet beror också på rörelsens hastighet, riktning, avstånd, ljus och fokus." },
+            { prompt: "Vad bestämmer du i Tv på Canon eller S på Nikon?", options: [{id:"a",text:"Enbart bildens färg"},{id:"b",text:"Endast fokus"},{id:"c",text:"Slutartiden; kameran väljer bländare inom objektivets gränser"},{id:"d",text:"Bara filnamnet"}], correct:"c", explanation:"I slutartidsprioritet väljer du tiden. I övningen använder vi fast ISO; kameran anpassar bländaren så långt det går." },
+            { prompt: "En stillastående bakgrund är skarp, men en gående person får rörelsespår vid 1/15 s. Vad är den rimligaste förklaringen?", options: [{id:"a",text:"Personen hann röra sig under exponeringen"},{id:"b",text:"Minneskortet är fullt"},{id:"c",text:"Bakgrunden har fel vitbalans"},{id:"d",text:"ISO är alltid för högt vid 1/15 s"}], correct:"a", explanation:"Rörelsespår i motivet men en skarp stillastående bakgrund tyder på motivrörelse. Om hela bilden får spår bör du även kontrollera kameraskakning." },
+            { prompt: "Du förlänger tiden från 1/250 s till 1/125 s och behåller samma bländare och ISO. Vad händer med ljuset som når sensorn?", options: [{id:"a",text:"Det halveras"},{id:"b",text:"Det ändras inte"},{id:"c",text:"Bara färgen ändras"},{id:"d",text:"Mängden ljus fördubblas"}], correct:"d", explanation:"Exponeringstiden blir dubbelt så lång. Med oförändrad bländare och oförändrat ljus når dubbelt så mycket ljus sensorn." },
+            { prompt: "Bilden är för mörk vid 1/1000 s och kameran kan inte öppna bländaren mer. Vad är ett rimligt nästa försök?", options: [{id:"a",text:"Välja 1/4000 s utan att ändra något annat"},{id:"b",text:"Söka bättre ljus, höja ISO eller prova en något längre tid"},{id:"c",text:"Formatera kortet"},{id:"d",text:"Sänka ISO utan att ändra något annat"}], correct:"b", explanation:"Dessa val kan hjälpa bildens ljushet. En längre tid kan samtidigt ge mer rörelseoskärpa, så kontrollera uttrycket efter ändringen." },
+            { prompt: "Vad ska vara klart innan ni formaterar ett delat minneskort?", options: [{id:"a",text:"En person har sett sin bästa bild på kameran"},{id:"b",text:"Bilderna har fått nya filnamn"},{id:"c",text:"Bådas bilder är överförda, kontrollerade och lagrade enligt skolans rutin, och läraren har gett klartecken"},{id:"d",text:"Kameran har legat i väskan"}], correct:"c", explanation:"Formatering raderar kortets innehåll. Kontrollera lagringen för båda eleverna och följ lärarens rutin; formatera inte om något är osäkert." }
+        ]
+    };
 
-    // Skickar automatiskt in quiz-resultatet till läraren via Google Formulär, i bakgrunden.
-    // Misslyckas det (t.ex. ingen internetuppkoppling) sparas resultatet ändå lokalt i quizResults
-    // som backup via "Se resultat" / CSV-export.
-    function submitQuizResultToForm(name, quizTitle, scoreText) {
-        const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdOm-VvLrfWTslIDDWRlwrcLz7O7IlHwfWwqzyc3ULyS8GA6A/formResponse';
-        const data = new URLSearchParams();
-        data.append('entry.568507212', name);
-        data.append('entry.1496477364', quizTitle);
-        data.append('entry.1392486438', scoreText);
-        fetch(formUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: data.toString()
-        }).catch(() => { /* skickas ändå "blint" pga no-cors, men vi ignorerar nätverksfel tyst */ });
-    }
+    let quizState = { key: null, index: 0, score: 0, answered: false, name: '' };
     let quizResults = [];
+    // OBS: extern inskickning (t.ex. till Google Forms) är medvetet borttagen här av GDPR-skäl.
+    // Resultat sparas just nu enbart lokalt i webbläsaren, se quizResults ovan och "Se resultat"-vyn
+    // med CSV-export. En central lösning via skolans egen Microsoft 365 (Power Automate) är på gång.
 
     function openQuiz(key) {
         quizState = { key, index: 0, score: 0, answered: false, name: '' };
@@ -1293,7 +1335,7 @@
                 total: quiz.questions.length,
                 time: new Date().toLocaleString('sv-SE')
             });
-            submitQuizResultToForm(quizState.name, quiz.title, `${quizState.score}/${quiz.questions.length}`);
+            // (extern inskickning borttagen av GDPR-skäl, se kommentar ovan vid quizResults)
             body.innerHTML = `
                 <div class="text-center space-y-6 py-8">
                     <div class="text-6xl">🎉</div>
@@ -1427,20 +1469,9 @@
         }
     }
 
-    function filterGrade(level, btn) {
-        const container = document.getElementById('gradeDetails');
-        container.innerHTML = '';
-        document.querySelectorAll('.grade-btn').forEach(b => b.className = "grade-btn flex-1 py-4 rounded-2xl font-bold transition-all text-slate-400");
-        btn.className = "grade-btn flex-1 py-4 rounded-2xl font-bold transition-all bg-amber-700 text-white shadow-lg";
-        courseData.grading[level].forEach(item => {
-            const div = document.createElement('div');
-            div.className = "bg-slate-50 p-6 rounded-3xl border border-slate-100";
-            div.innerHTML = `<div class="text-[10px] font-black text-amber-700 uppercase mb-1 tracking-widest">${item.cat}</div><p class="text-slate-700 font-medium">${item.text}</p>`;
-            container.appendChild(div);
-        });
-    }
-
-    window.onload = init;
+    // All required elements are above this script. Start immediately, also in previews
+    // that evaluate the script after the window load event has already occurred.
+    init();
 </script>
 
 </body>
