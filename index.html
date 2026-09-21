@@ -126,9 +126,9 @@
                     <h1 class="text-5xl font-black text-slate-900 leading-none">Fotografisk bild</h1>
                     <p class="text-slate-600 text-xl max-w-2xl">Från kamerans grunder till eget bildberättande. Gemensam undervisning för Fotografisk bild 1 och Fotografisk bild, nivå 1 (Gy25).</p>
                     <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 space-y-3">
-                        <p><strong>Nästa steg: Lektion 3 – Slutartid och rörelse.</strong> Komplett lektionsplan, presentation och repetitionsquiz finns i kamerateknikmodulen.</p>
+                        <p><strong>Nästa steg: Lektion 4 – ISO och digitalt brus.</strong> Komplett lektionsplan, presentation och repetitionsquiz finns i kamerateknikmodulen.</p>
                         <button onclick="openModal(1)" class="bg-amber-700 text-white rounded-xl px-5 py-3 font-bold">Öppna kamerateknik</button>
-                        <p class="text-sm text-slate-600">Arbetsversion 2 · Lektion 1–2 är bevarade. Lektion 3 är utvecklad; senare lektioner är fortsatt en grovplan. Veckor är preliminära tills lov och undervisningsdatum är inlagda.</p>
+                        <p class="text-sm text-slate-600">Uppdaterad 21 september 2026 · Lektion 1–3 är bevarade. Lektion 4 är nu utvecklad; senare lektioner är fortsatt en grovplan. Veckor är preliminära tills lov och undervisningsdatum är inlagda.</p>
                     </div>
                 </div>
 
@@ -143,7 +143,7 @@
             <div class="space-y-6">
                 <div class="bg-slate-900 p-8 rounded-[2rem] text-white">
                     <h4 class="font-bold text-xl mb-4">Lektionsstruktur</h4>
-                    <p class="text-sm opacity-70 mb-6">Lektion 3: 150 minuter inklusive repetition, kamerastöd, fotografering, paus och bildsamtal. Fem par arbetar tillsammans; alla tar egna bilder.</p>
+                    <p class="text-sm opacity-70 mb-6">Lektion 3–4: 150 minuter inklusive repetition, kamerastöd, fotografering, paus och bildsamtal. Fem par arbetar tillsammans; alla tar egna bilder.</p>
                     <div class="h-56">
                         <canvas id="lessonChart"></canvas>
                     </div>
@@ -205,6 +205,15 @@
             <li>Kan eleven beskriva en ändring efter återkoppling och undersöka resultatet?</li>
           </ul>
           <p>Anteckna kort: självständigt genomfört, stöd som behövdes och nästa steg. Samla individuellt underlag även vid pararbete. Extrautmaningen är frivillig och är inte en separat väg till ett visst betyg.</p>
+        </article>
+        <article class="bg-amber-50 border border-amber-200 rounded-2xl p-6 space-y-4">
+          <h3 class="text-xl font-bold">Lektion 4: förberedelse och uppföljning</h3>
+          <p>Prova serien i förväg på Canon och Nikon: Av/A, f/5,6 och ISO 400/800/1600. Välj ett stilla motiv med struktur och en mörk, jämn yta i stabilt ljus. Ordna fem säkra kamerastöd eller stativ. Ingen högre ISO-nivå krävs.</p>
+          <p>Förbered samma bildvisningsprogram på elevdatorerna och visa hur bildinformation och 100 procent förstoring hittas. Behåll samma JPEG-inställningar eller samma RAW-framkallning inom varje serie. Ingen separat brusreducering behövs i denna lektion.</p>
+          <p>Starta med quizet för lektion 3. Följ sedan varje elevs inställningsval, egna bildserie och förklaring. Hjälp vid behov att skilja brus från fel fokus och skakning. Frånvaro av tydlig brusskillnad är ett giltigt resultat.</p>
+          <p><strong>Äldre kursen:</strong> använd serien och resonemanget som underlag om teknisk kvalitet, fotografiska val och deras motivering. <strong>Gy25:</strong> använd dem som underlag om utrustning, bildframställning och analys av egna bilder. Detta är en pedagogisk koppling till styrdokumenten ovan, inte en fullständig bedömningsmatris.</p>
+          <p>Bedöm elevens undersökning och förklaring, inte hur mycket brus kameran ger. Extraövningen och quizpoängen är inga egna betygsgränser. Låt eleven visa sin förståelse muntligt vid behov.</p>
+          <p class="text-sm">Kamerastöd: <a class="underline" href="https://www.canon-europe.com/support/consumer/products/cameras/eos/eos-1000d.html" target="_blank" rel="noopener">Canon EOS 1000D – manual och support</a> · <a class="underline" href="https://downloadcenter.nikonimglib.com/sv/products/9/D90.html" target="_blank" rel="noopener">Nikon D90 – manual</a>. Anpassa knappvisningen efter de faktiska kamerorna.</p>
         </article>
         <article class="bg-white border rounded-2xl p-6 space-y-4">
           <h3 class="text-xl font-bold">Årsplanens kompletteringar – ännu inte detaljplanerade</h3>
@@ -377,7 +386,7 @@
                         practical: "Fånga farten: arbeta i par men ta egna bilder. Jämför en kort och en lång slutartid, välj ett eget bildpar och förklara skillnaden. Full arbetsgång finns nedan.",
                         plan: true
                     },
-                    { title: "ISO & Digitalt brus", theory: "ISO, bildens ljushet och brus. Högre ISO släpper inte in mer ljus genom objektivet.", practical: "Grovplan: jämför ISO 400, 800 och 1600 på samma kamera och motiv i stabilt ljus. Använd Av/A, samma bländare och kamerastöd; kameran anpassar slutartiden. Jämför lika ljusa bilder i samma förstoring. Högre ISO är en frivillig jämförelse på kameror som stöder det." },
+                    { title: "ISO & Digitalt brus", theory: "ISO, slutartid och bildkvalitet. Högre ISO släpper inte in mer ljus. Undersök avvägningen mellan brus och rörelseoskärpa.", practical: "Ta en egen serie med ISO 400, 800 och 1600 i Av/A med samma bländare och motiv. Anteckna slutartiderna. Jämför bilderna och motivera vilket ISO du skulle välja.", plan: "iso" },
                     { title: "Manuellt läge (M)", theory: "Balansera bländare, slutartid och fast ISO. Introducera RAW/JPEG före teknikuppgiften.", practical: "Grovplan: börja i simulatorn. Fotografera sedan samma motiv med tre avsiktliga exponeringsval. Förklara vad du ändrade och varför; anpassa ljusheten till ditt bilduttryck." },
                     { title: "Teknikuppgift & återkoppling", theory: "Samla bilder och förklara sambandet mellan inställningar och uttryck.", practical: "Grovplan: visa skärpedjup, rörelse och ett medvetet exponeringsval. Motivera dina inställningar, få återkoppling och gör ett omtag. M-läge tränas, men snabbhet och visst kameraläge är inte egna betygskriterier." }
                 ]
@@ -911,12 +920,12 @@
                     "Kort slutartid kan frysa rörelse. Lång slutartid kan låta rörelsen synas som ett spår.",
                     "1/1000 och 1/15 sekund är startförslag – inte garantier. Prova, granska och anpassa efter rörelsen och ljuset.",
                     "Med oförändrad bländare och ISO ger längre tid mer ljus. I Tv/S ändrar kameran bländaren för att kompensera, så länge objektivet räcker till.",
-                    "Läraren visar två bilder eller fotograferar en rörlig hand eller boll med två olika tider. Vad är stilla, och vad rör sig?"
+                    "Jämför hur rörelsen syns med en kort och en lång slutartid. Vad är skarpt, och var syns rörelsespår?"
                 ]) },
                 { title: "Ställ in kameran", content: lessonSlide("Du väljer tiden – kameran väljer bländaren", "30–40 min · alla provar reglagen", [
                     "Canon: vrid lägesratten till Tv. Vrid inställningsratten nära avtryckaren för att välja slutartid.",
                     "Nikon D90: välj S. Välj slutartid med den bakre inställningsratten.",
-                    "Starta med fast ISO 400, inte Auto ISO. Läraren visar ISO-knappen eller menyn på respektive modell. Börja utan blixt.",
+                    "Hitta ISO-inställningen med ISO-knappen eller i kamerans meny. Välj fast ISO 400, inte Auto ISO. Börja utan blixt.",
                     "Kontrollera fokus genom sökaren. Använd samma brännvidd och ungefär samma avstånd i jämförelsen."
                 ]) },
                 { title: "Grunduppgift: Fånga farten", content: lessonSlide("Två tider · samma slags rörelse", "40–65 min · första fotopasset", [
@@ -929,7 +938,7 @@
                     "För mörkt vid kort tid? Sök bättre ljus, prova 1/500 s eller höj ISO till 800/1600. Kontrollera resultat och exponeringsvarning.",
                     "För ljust vid lång tid? Sänk ISO inom kamerans vanliga område eller gå till skugga. Ändra tiden om det fortfarande behövs.",
                     "Hela bilden får rörelsespår? Stöd kameran bättre. Bakgrunden skarp men motivet suddigt? Det kan vara avsedd motivrörelse.",
-                    "Fel del skarp utan rörelsespår? Kontrollera fokus. Kort tid löser inte fel fokus. Läraren hjälper vid behov med följande autofokus."
+                    "Fel del skarp utan rörelsespår? Kontrollera var du har fokuserat. Kort slutartid löser inte fel fokus. Be om hjälp att prova följande autofokus om motivet rör sig ur fokus."
                 ]) },
                 { title: "Paus, omtag och frivillig utmaning", content: lessonSlide("Förbättra – eller prova panorering", "65–75 min paus · 75–100 min andra fotopasset", [
                     "Prioritera ett eget fungerande bildpar. Visa en bild för läraren och prova en förbättring.",
@@ -979,6 +988,104 @@
             '<p><strong>Fördjupning:</strong> prova panorering vid 1/30–1/60 s. Grunduppgiften går först. <strong>Reserv vid dåligt väder:</strong> prova handrörelse eller en boll vid ett ljust fönster med lärarens stöd.</p>' +
             '<p><strong>Utcheckning:</strong> öppna och kontrollera sparade bilder för båda i paret. Formatera i kameran endast efter lärarens klartecken och verifierad lagring. Ingen publicering eller extern resultatöverföring ingår.</p>' +
             '<button onclick="openQuiz(&quot;m1l3&quot;)" class="bg-slate-900 text-white px-5 py-3 rounded-xl">Repetitionsquiz – används nästa lektion</button></div>';
+    }
+
+    const lessonFourSchedule = [
+        ["0–15", "Repetition", "Gör quizet för lektion 3 om slutartid. Jämför svar och reda ut en osäkerhet."],
+        ["15–30", "ISO & bildkvalitet", "Undersök sambandet mellan ISO, slutartid och brus. När är lite brus värt det?"],
+        ["30–40", "Kamerastart", "Välj Av/A, f/5,6 och fast ISO 400. Kontrollera fokus, stöd och avstängd blixt."],
+        ["40–65", "Fotopass 1", "Ta tre egna bilder med ISO 400, 800 och 1600. Byt roller så att båda fotograferar."],
+        ["65–75", "Paus", "Lägg kamerorna säkert."],
+        ["75–100", "Fotopass 2", "Kontrollera serien och ta om vid behov. Prova därefter en enkel rörelse med två ISO-värden."],
+        ["100–120", "Urval & inlämning", "Jämför tre egna bilder i samma förstoring. Redovisa inställningar och motivera ditt ISO-val."],
+        ["120–140", "Bildsamtal", "Vad blev annorlunda, vad blev lika och vilken bild fungerar bäst för sitt syfte?"],
+        ["140–150", "Utcheckning", "Kontrollera bådas sparade bilder. Formatera först efter klartecken och lämna kameran."]
+    ];
+
+    presentations.m1l4 = {
+        badge: "Lektion 4", label: "Presentation Lektion 4",
+        slides: [
+            { title: "ISO & digitalt brus", content: lessonSlide("När ljuset inte räcker", "Lektion 4 · 150 minuter", [
+                "Du ska kunna ändra ISO och undersöka vad som händer med slutartiden och bildkvaliteten.",
+                "Du ska jämföra tre egna bilder och motivera ett ISO-val utifrån motiv och ljus.",
+                "Arbeta i fem par och turas om vid kameran. Varje elev tar en egen bildserie."
+            ]) },
+            { title: "Tillbaka till rörelsen", content: lessonSlide("Vad minns du om slutartid?", "0–15 min · repetition", [
+                "Gör quizet för lektion 3 under fliken Quiz.",
+                "Vilken skillnad såg du mellan kort och lång slutartid? Hur skiljer du motivrörelse från kameraskakning?",
+                "Fundera: vad kan du göra om du behöver en kort tid men bilden blir för mörk?"
+            ]) },
+            { title: "Vad gör ISO?", content: lessonSlide("ISO påverkar bildens ljushet", "15–30 min · förstå sambandet", [
+                "ISO styr hur kamerans signal används för bildens ljushet. Med samma bländare och slutartid ger högre ISO normalt en ljusare bild.",
+                "ISO öppnar inte objektivet och förlänger inte tiden. Det släpper alltså inte in mer ljus till sensorn.",
+                "I Av/A väljer du bländaren. När du höjer ISO kan kameran välja kortare slutartid och ändå återge bilden ungefär lika ljust."
+            ]) },
+            { title: "En jämförelse i steg", content: lessonSlide("Samma ljushet – kortare tid", "Räkneexempel · oförändrat ljus och f/5,6", [
+                "ISO 400 och 1/30 s → ISO 800 och ungefär 1/60 s → ISO 1600 och ungefär 1/125 s.",
+                "Varje fördubbling av ISO motsvarar ett steg. Kameran kan då ungefär halvera exponeringstiden.",
+                "Detta är ett exempel, inte inställningar som alltid passar. Läs av vilka tider din kamera faktiskt väljer."
+            ]) },
+            { title: "Brus eller oskärpa?", content: lessonSlide("Lite brus kan vara ett bra val", "Granska både detalj och helhet", [
+                "Brus kan synas som ojämn kornighet eller färgprickar, särskilt i mörka och jämna ytor. Rörelseoskärpa syns ofta som utdragna detaljer.",
+                "Vid svagt ljus och högre ISO kan brus bli mer synligt. I vår jämförelse kortas också tiden, så sensorn samlar in mindre ljus. Brus beror inte bara på ISO-talet.",
+                "En skarp bild med lite brus kan fungera bättre än en brusfattig bild där motivet blivit suddigt. Välj efter vad du vill visa."
+            ]) },
+            { title: "Ställ in kameran", content: lessonSlide("Av på Canon · A på Nikon D90", "30–40 min · förbered jämförelsen", [
+                "Välj Av på Canon eller A på Nikon. Ställ in f/5,6 och välj ISO 400 manuellt. Stäng av Auto ISO och blixt.",
+                "På Canon ändrar du bländaren med ratten nära avtryckaren. På Nikon D90 använder du främre ratten. Hitta ISO via ISO-knappen eller menyn.",
+                "Behåll samma kamera, zoom, utsnitt, fokuspunkt, filformat, bildstil, vitbalans och brusreducering genom serien.",
+                "Välj ett stilla motiv med fin struktur och en mörkare jämn yta. Använd stativ eller säkert stöd i lugnt, oförändrat ljus."
+            ]) },
+            { title: "Grunduppgift: tre ISO-värden", content: lessonSlide("400 · 800 · 1600", "40–65 min · första fotopasset", [
+                "Ta bild 1 med ISO 400, bild 2 med ISO 800 och bild 3 med ISO 1600. Behåll f/5,6; låt kameran välja tiden.",
+                "Anteckna tiden för varje bild. Kontrollera att bilderna är ungefär lika ljusa och att fokus sitter på samma del av motivet.",
+                "Använd gärna självutlösare för att undvika skakning. Om ljuset ändras eller kameran varnar för fel exponering: justera platsen och ta om serien.",
+                "Byt roller. Båda ska fotografera en egen serie, inte bara dela på samma tre bilder."
+            ]) },
+            { title: "Paus och nästa försök", content: lessonSlide("När hjälper ett högre ISO?", "65–75 min paus · 75–100 min andra fotopasset", [
+                "Säkra först din jämförelseserie. Ser du ingen tydlig brusskillnad? Det är också ett resultat. Högre ISO behöver inte se dåligt ut.",
+                "Prova därefter en upprepningsbar handrörelse eller boll i rörelse vid ISO 400 och 1600 i Av/A. Behåll samma bländare och ungefär samma rörelse.",
+                "Läs av tiderna och jämför rörelsespåren. Blev bilden med kortare tid skarpare? Ingen måste vara modell.",
+                "Frivilligt: välj själv ISO för en vardagssituation och motivera avvägningen mellan tid, brus och uttryck."
+            ]) },
+            { title: "Välj och förklara", content: lessonSlide("Tre bilder och ett motiverat val", "100–120 min · överföring och inlämning", [
+                "Kopiera och kontrollera bilderna. Välj din stillastående serie med ISO 400, 800 och 1600. Spara originalen.",
+                "Jämför samma del vid 100 procent förstoring. Granska sedan hela bilden i vanlig visningsstorlek. Redigera inte bilderna olika inför jämförelsen.",
+                "Lämna de tre bilderna med ISO, bländare och slutartid på skolans anvisade plats. Ett eventuellt rörelsepar kan bifogas.",
+                "Besvara kort: Vad hände med tiden? Vad såg du i skuggor och detaljer? Vilket ISO skulle du välja här, och varför? Du kan också förklara muntligt."
+            ]) },
+            { title: "Bildsamtal och avslutning", content: lessonSlide("Vad fungerade för ditt motiv?", "120–140 min bildsamtal · 140–150 min utcheckning", [
+                "Jämför några serier. Beskriv vad du faktiskt ser och skilj det från vad du hade förväntat dig. Olika kameror kan ge olika resultat.",
+                "Förklara när du skulle välja mer ljus eller kamerastöd, och när du skulle höja ISO för att få en kortare tid.",
+                "Kontrollera bådas överförda bilder. Formatera först efter klartecken och säker lagring enligt skolans rutin.",
+                "Lämna kameran i väskan. Nästa gång kombinerar vi bländare, slutartid och ISO i manuellt läge."
+            ]) }
+        ]
+    };
+
+    function lessonFourPlan() {
+        return `<div class="lesson-plan space-y-5 mt-6 border-t pt-5">
+            <h6 class="font-bold text-xl">Mål och redovisning</h6>
+            <p>Ändra ISO, undersök slutartiden och jämför brus och detaljer. Lämna tre egna bilder vid ISO 400, 800 och 1600 med inställningar och en kort skriftlig eller muntlig förklaring av ditt ISO-val.</p>
+            <p><strong>Fem par, egna bildserier.</strong> Turas om som fotograf och medhjälpare. Grunduppgiften görs på samma kamera.</p>
+            <div class="overflow-x-auto"><table class="w-full text-left"><thead><tr><th class="p-2">Minuter</th><th class="p-2">Moment</th><th class="p-2">Arbetsgång</th></tr></thead><tbody>
+            ${lessonFourSchedule.map(row => '<tr>' + row.map(cell => '<td class="p-2 border-t align-top">' + cell + '</td>').join('') + '</tr>').join('')}
+            </tbody></table></div>
+            <div class="bg-amber-50 rounded-2xl p-5"><h6 class="font-bold">Din foto-checklista</h6><ol class="list-decimal pl-6 space-y-2 mt-2">
+                <li>Välj ett stilla motiv med detaljer och mörka jämna ytor. Använd stöd och oförändrat ljus.</li>
+                <li>Canon: Av. Nikon: A. Välj f/5,6 och fast ISO 400. Stäng av Auto ISO och blixt.</li>
+                <li>Ta tre bilder vid ISO 400, 800 och 1600. Behåll kamera, bländare, zoom, utsnitt, fokus och bildbehandling. Kameran ändrar tiden.</li>
+                <li>Anteckna tiderna. Kontrollera lika ljushet; ta om serien om ljuset ändras eller fokus blir fel.</li>
+                <li>Byt roller. Alla tar egna bilder. Prova därefter samma enkla rörelse med ISO 400 och 1600 om grundserien är klar.</li>
+                <li>Jämför samma bildområde vid 100 procent och sedan hela bilden. Lämna tre bilder med inställningar och motivera ditt val.</li>
+            </ol></div>
+            <p><strong>Reflektera:</strong> Vad hände med tiden? Hur förändrades brus och detaljer? Vilket ISO passar ditt motiv och varför? Beskriv även om du inte ser någon tydlig skillnad.</p>
+            <p><strong>Felsökning:</strong> Suddigt stilla motiv: kontrollera fokus och stöd. Olika ljushet: kontrollera fast bländare, Auto ISO, exponeringskompensation och ljuset. Ingen brusskillnad: jämför samma skuggparti och behåll samma redigering. Hitta inte på skillnader.</p>
+            <p><strong>Fördjupning:</strong> undersök när rörelseoskärpa blir mer störande än brus. Ingen behöver använda ISO över 1600. Övningen kan göras inomhus i lugnt fönsterljus.</p>
+            <p><strong>Utcheckning:</strong> kontrollera bådas sparade bilder. Formatera endast efter klartecken och verifierad lagring.</p>
+            <button onclick="openQuiz('m1l3')" class="bg-slate-900 text-white px-5 py-3 rounded-xl">Starta lektionen: quiz om slutartid</button>
+            <button onclick="openQuiz('m1l4')" class="bg-amber-700 text-white px-5 py-3 rounded-xl">Quiz om ISO – repetition nästa lektion</button>
+        </div>`;
     }
 
     let currentSlide = 0;
@@ -1163,7 +1270,7 @@
                                 <span class="text-[10px] font-black uppercase block mb-1">Praktisk Uppgift</span>${less.practical}
                             </div>
                         </div>
-                        ${less.plan ? lessonThreePlan() : ""}
+                        ${less.plan === "iso" ? lessonFourPlan() : less.plan ? lessonThreePlan() : ""}
                     </div>
                 </div>
             `}).join('')}
@@ -1272,6 +1379,152 @@
             { prompt: "Vad ska vara klart innan ni formaterar ett delat minneskort?", options: [{id:"a",text:"En person har sett sin bästa bild på kameran"},{id:"b",text:"Bilderna har fått nya filnamn"},{id:"c",text:"Bådas bilder är överförda, kontrollerade och lagrade enligt skolans rutin, och läraren har gett klartecken"},{id:"d",text:"Kameran har legat i väskan"}], correct:"c", explanation:"Formatering raderar kortets innehåll. Kontrollera lagringen för båda eleverna och följ lärarens rutin; formatera inte om något är osäkert." }
         ]
     };
+
+    quizzes.m1l4 = {
+    "title": "Lektion 4: ISO & digitalt brus",
+    "desc": "Sex frågor för repetition i början av lektion 5.",
+    "icon": "🌗",
+    "questions": [
+        {
+            "prompt": "Vad händer normalt om du höjer ISO men behåller samma bländare, slutartid och ljus?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "Bilden återges ljusare"
+                },
+                {
+                    "id": "b",
+                    "text": "Objektivet släpper in mer ljus"
+                },
+                {
+                    "id": "c",
+                    "text": "Slutaren är öppen längre"
+                },
+                {
+                    "id": "d",
+                    "text": "Fokus flyttas automatiskt"
+                }
+            ],
+            "correct": "a",
+            "explanation": "Högre ISO påverkar bildens ljushet via kamerans signalhantering. Med samma bländare och tid når inte mer ljus sensorn."
+        },
+        {
+            "prompt": "Du använder Av/A med samma bländare och oförändrat ljus. Vad händer vanligtvis när du höjer ISO?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "Kameran väljer alltid längre tid"
+                },
+                {
+                    "id": "b",
+                    "text": "Kameran ändrar brännvidden"
+                },
+                {
+                    "id": "c",
+                    "text": "Kameran kan välja kortare tid och behålla ungefär samma ljushet"
+                },
+                {
+                    "id": "d",
+                    "text": "Ingenting kan ändras"
+                }
+            ],
+            "correct": "c",
+            "explanation": "Kameran kan kompensera högre ISO med kortare slutartid. Läs av tiden och kontrollera att kameran inte nått en gräns."
+        },
+        {
+            "prompt": "Vilken jämförelse är mest rättvis när du undersöker brus?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "Olika kameror, motiv och förstoring"
+                },
+                {
+                    "id": "b",
+                    "text": "Samma kamera, motiv och bildområde i samma förstoring, med liknande ljushet och samma bildbehandling"
+                },
+                {
+                    "id": "c",
+                    "text": "En liten miniatyr och en kraftigt förstorad bild"
+                },
+                {
+                    "id": "d",
+                    "text": "En ljus utomhusbild och en mörk inomhusbild"
+                }
+            ],
+            "correct": "b",
+            "explanation": "Håll så mycket som möjligt lika. I vår Av/A-serie ändras ISO och kamerans slutartid; anteckna båda."
+        },
+        {
+            "prompt": "En gående person blir suddig vid låg ISO och lång tid. Vad kan ett högre ISO hjälpa dig med?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "Det garanterar rätt fokus"
+                },
+                {
+                    "id": "b",
+                    "text": "Det får personen att stå still"
+                },
+                {
+                    "id": "c",
+                    "text": "Det tar bort allt brus"
+                },
+                {
+                    "id": "d",
+                    "text": "Det kan möjliggöra kortare tid och mindre rörelseoskärpa"
+                }
+            ],
+            "correct": "d",
+            "explanation": "Högre ISO kan ge utrymme för kortare tid. Lite brus kan vara en rimlig kompromiss; resultatet beror även på rörelse och fokus."
+        },
+        {
+            "prompt": "Du ser ingen tydlig brusskillnad mellan dina tre bilder. Vad är ett bra nästa steg?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "Beskriv det du ser och kontrollera samma skuggparti vid samma förstoring"
+                },
+                {
+                    "id": "b",
+                    "text": "Skriv att ISO 1600 var sämst ändå"
+                },
+                {
+                    "id": "c",
+                    "text": "Gör bara bilden med hög ISO mörkare i efterhand"
+                },
+                {
+                    "id": "d",
+                    "text": "Radera serien direkt"
+                }
+            ],
+            "correct": "a",
+            "explanation": "Ingen tydlig skillnad är också en observation. Kamera, ljus, exponering, bildbehandling och visningsstorlek påverkar hur tydligt brus syns."
+        },
+        {
+            "prompt": "I ett exempel ger ISO 400 tiden 1/30 s. Ungefär vilken tid motsvarar ISO 1600 vid samma bländare och bildljushet?",
+            "options": [
+                {
+                    "id": "a",
+                    "text": "1 sekund"
+                },
+                {
+                    "id": "b",
+                    "text": "1/8 sekund"
+                },
+                {
+                    "id": "c",
+                    "text": "1/125 sekund"
+                },
+                {
+                    "id": "d",
+                    "text": "Fortfarande alltid 1/30 sekund"
+                }
+            ],
+            "correct": "c",
+            "explanation": "400 till 800 till 1600 är två steg. Tiden kan kortas från 1/30 till ungefär 1/60 och sedan 1/125 sekund."
+        }
+    ]
+};
 
     let quizState = { key: null, index: 0, score: 0, answered: false, name: '' };
     let quizResults = [];
