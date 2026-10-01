@@ -128,7 +128,7 @@
                     <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 space-y-3">
                         <p><strong>Nästa steg: Lektion 5 – Manuellt läge (M).</strong> Komplett lektionsplan, presentation och repetitionsquiz finns i kamerateknikmodulen.</p>
                         <button onclick="openModal(1)" class="bg-amber-700 text-white rounded-xl px-5 py-3 font-bold">Öppna kamerateknik</button>
-                        <p class="text-sm text-slate-600">Uppdaterad 28 september 2026 · Lektion 1–4 är bevarade. Lektion 5 är nu utvecklad; senare lektioner är fortsatt en grovplan. Veckor är preliminära tills lov och undervisningsdatum är inlagda.</p>
+                        <p class="text-sm text-slate-600">Uppdaterad 30 september 2026 · Lektion 1–6 är utvecklade. Lektion 6 är en mjuk övergång från kamerateknik till komposition. Veckor är preliminära tills lov och undervisningsdatum är inlagda.</p>
                     </div>
                 </div>
 
@@ -143,7 +143,7 @@
             <div class="space-y-6">
                 <div class="bg-slate-900 p-8 rounded-[2rem] text-white">
                     <h4 class="font-bold text-xl mb-4">Lektionsstruktur</h4>
-                    <p class="text-sm opacity-70 mb-6">Lektion 3–4: 150 minuter inklusive repetition, kamerastöd, fotografering, paus och bildsamtal. Fem par arbetar tillsammans; alla tar egna bilder.</p>
+                    <p class="text-sm opacity-70 mb-6">Lektion 3–6: 150 minuter inklusive repetition, kamerastöd, fotografering, paus och bildsamtal. Fem par arbetar tillsammans; alla tar egna bilder.</p>
                     <div class="h-56">
                         <canvas id="lessonChart"></canvas>
                     </div>
@@ -396,7 +396,7 @@
                     },
                     { title: "ISO & Digitalt brus", theory: "ISO, slutartid och bildkvalitet. Högre ISO släpper inte in mer ljus. Undersök avvägningen mellan brus och rörelseoskärpa.", practical: "Ta en egen serie med ISO 400, 800 och 1600 i Av/A med samma bländare och motiv. Anteckna slutartiderna. Jämför bilderna och motivera vilket ISO du skulle välja.", plan: "iso" },
                     { title: "Manuellt läge (M)", theory: "Kombinera bländare, slutartid och fast ISO. Använd ljusmätaren som vägledning och skilj RAW från JPEG.", practical: "Tre ljushetsval: ta en egen grundbild, en mörkare och en ljusare bild av samma stilla motiv. Ändra bara slutartiden i serien. Välj ett uttryck och motivera dina inställningar.", plan: "manual" },
-                    { title: "Teknikuppgift & återkoppling", theory: "Samla bilder och förklara sambandet mellan inställningar och uttryck.", practical: "Grovplan: visa skärpedjup, rörelse och ett medvetet exponeringsval. Motivera dina inställningar, få återkoppling och gör ett omtag. M-läge tränas, men snabbhet och visst kameraläge är inte egna betygskriterier." }
+                    { title: "Teknik möter komposition", theory: "Nu börjar kameratekniken användas för att bygga bilden. Introduktion till tredjedelsregeln, ledande linjer, perspektiv och medveten bakgrund.", practical: "Fotografera samma motiv på sex olika sätt. Kombinera M-läge, exponering och skärpedjup med placering, perspektiv, linjer och bakgrund. Välj en bild och motivera både tekniska och bildmässiga val.", plan: "composition" }
                 ]
             },
             {
@@ -998,781 +998,164 @@
             '<button onclick="openQuiz(&quot;m1l3&quot;)" class="bg-slate-900 text-white px-5 py-3 rounded-xl">Repetitionsquiz – används nästa lektion</button></div>';
     }
 
+    // --- LEKTION 4–6: utvecklad del ---
     const lessonFourSchedule = [
-        ["0–15", "Repetition", "Gör quizet för lektion 3 om slutartid. Jämför svar och reda ut en osäkerhet."],
-        ["15–30", "ISO & bildkvalitet", "Undersök sambandet mellan ISO, slutartid och brus. När är lite brus värt det?"],
-        ["30–40", "Kamerastart", "Välj Av/A, f/5,6 och fast ISO 400. Kontrollera fokus, stöd och avstängd blixt."],
-        ["40–65", "Fotopass 1", "Ta tre egna bilder med ISO 400, 800 och 1600. Byt roller så att båda fotograferar."],
+        ["0–15", "Repetition", "Quiz om slutartid och kort återkoppling."],
+        ["15–30", "ISO & bildkvalitet", "Sambandet mellan ISO, slutartid, brus och rörelseoskärpa."],
+        ["30–40", "Kamerastart", "Av/A, f/5,6, fast ISO och stabilt motiv."],
+        ["40–65", "Fotopass 1", "Egna bildserier med ISO 400, 800 och 1600."],
         ["65–75", "Paus", "Lägg kamerorna säkert."],
-        ["75–100", "Fotopass 2", "Kontrollera serien och ta om vid behov. Prova därefter en enkel rörelse med två ISO-värden."],
-        ["100–120", "Urval & inlämning", "Jämför tre egna bilder i samma förstoring. Redovisa inställningar och motivera ditt ISO-val."],
-        ["120–140", "Bildsamtal", "Vad blev annorlunda, vad blev lika och vilken bild fungerar bäst för sitt syfte?"],
-        ["140–150", "Utcheckning", "Kontrollera bådas sparade bilder. Formatera först efter klartecken och lämna kameran."]
+        ["75–100", "Fotopass 2", "Kontroll, omtag och enkel rörelsejämförelse."],
+        ["100–120", "Urval", "Jämför samma bildområde och redovisa inställningar."],
+        ["120–140", "Bildsamtal", "Vad syns faktiskt – brus, skärpa och detaljer?"],
+        ["140–150", "Utcheckning", "Kontrollera lagring och lämna utrustningen."]
     ];
 
     presentations.m1l4 = {
         badge: "Lektion 4", label: "Presentation Lektion 4",
         slides: [
-            { title: "ISO & digitalt brus", content: lessonSlide("När ljuset inte räcker", "Lektion 4 · 150 minuter", [
-                "Du ska kunna ändra ISO och undersöka vad som händer med slutartiden och bildkvaliteten.",
-                "Du ska jämföra tre egna bilder och motivera ett ISO-val utifrån motiv och ljus.",
-                "Arbeta i fem par och turas om vid kameran. Varje elev tar en egen bildserie."
-            ]) },
-            { title: "Tillbaka till rörelsen", content: lessonSlide("Vad minns du om slutartid?", "0–15 min · repetition", [
-                "Gör quizet för lektion 3 under fliken Quiz.",
-                "Vilken skillnad såg du mellan kort och lång slutartid? Hur skiljer du motivrörelse från kameraskakning?",
-                "Fundera: vad kan du göra om du behöver en kort tid men bilden blir för mörk?"
-            ]) },
-            { title: "Vad gör ISO?", content: lessonSlide("ISO påverkar bildens ljushet", "15–30 min · förstå sambandet", [
-                "ISO styr hur kamerans signal används för bildens ljushet. Med samma bländare och slutartid ger högre ISO normalt en ljusare bild.",
-                "ISO öppnar inte objektivet och förlänger inte tiden. Det släpper alltså inte in mer ljus till sensorn.",
-                "I Av/A väljer du bländaren. När du höjer ISO kan kameran välja kortare slutartid och ändå återge bilden ungefär lika ljust."
-            ]) },
-            { title: "En jämförelse i steg", content: lessonSlide("Samma ljushet – kortare tid", "Räkneexempel · oförändrat ljus och f/5,6", [
-                "ISO 400 och 1/30 s → ISO 800 och ungefär 1/60 s → ISO 1600 och ungefär 1/125 s.",
-                "Varje fördubbling av ISO motsvarar ett steg. Kameran kan då ungefär halvera exponeringstiden.",
-                "Detta är ett exempel, inte inställningar som alltid passar. Läs av vilka tider din kamera faktiskt väljer."
-            ]) },
-            { title: "Brus eller oskärpa?", content: lessonSlide("Lite brus kan vara ett bra val", "Granska både detalj och helhet", [
-                "Brus kan synas som ojämn kornighet eller färgprickar, särskilt i mörka och jämna ytor. Rörelseoskärpa syns ofta som utdragna detaljer.",
-                "Vid svagt ljus och högre ISO kan brus bli mer synligt. I vår jämförelse kortas också tiden, så sensorn samlar in mindre ljus. Brus beror inte bara på ISO-talet.",
-                "En skarp bild med lite brus kan fungera bättre än en brusfattig bild där motivet blivit suddigt. Välj efter vad du vill visa."
-            ]) },
-            { title: "Ställ in kameran", content: lessonSlide("Av på Canon · A på Nikon D90", "30–40 min · förbered jämförelsen", [
-                "Välj Av på Canon eller A på Nikon. Ställ in f/5,6 och välj ISO 400 manuellt. Stäng av Auto ISO och blixt.",
-                "På Canon ändrar du bländaren med ratten nära avtryckaren. På Nikon D90 använder du främre ratten. Hitta ISO via ISO-knappen eller menyn.",
-                "Behåll samma kamera, zoom, utsnitt, fokuspunkt, filformat, bildstil, vitbalans och brusreducering genom serien.",
-                "Välj ett stilla motiv med fin struktur och en mörkare jämn yta. Använd stativ eller säkert stöd i lugnt, oförändrat ljus."
-            ]) },
-            { title: "Grunduppgift: tre ISO-värden", content: lessonSlide("400 · 800 · 1600", "40–65 min · första fotopasset", [
-                "Ta bild 1 med ISO 400, bild 2 med ISO 800 och bild 3 med ISO 1600. Behåll f/5,6; låt kameran välja tiden.",
-                "Anteckna tiden för varje bild. Kontrollera att bilderna är ungefär lika ljusa och att fokus sitter på samma del av motivet.",
-                "Använd gärna självutlösare för att undvika skakning. Om ljuset ändras eller kameran varnar för fel exponering: justera platsen och ta om serien.",
-                "Byt roller. Båda ska fotografera en egen serie, inte bara dela på samma tre bilder."
-            ]) },
-            { title: "Paus och nästa försök", content: lessonSlide("När hjälper ett högre ISO?", "65–75 min paus · 75–100 min andra fotopasset", [
-                "Säkra först din jämförelseserie. Ser du ingen tydlig brusskillnad? Det är också ett resultat. Högre ISO behöver inte se dåligt ut.",
-                "Prova därefter en upprepningsbar handrörelse eller boll i rörelse vid ISO 400 och 1600 i Av/A. Behåll samma bländare och ungefär samma rörelse.",
-                "Läs av tiderna och jämför rörelsespåren. Blev bilden med kortare tid skarpare? Ingen måste vara modell.",
-                "Frivilligt: välj själv ISO för en vardagssituation och motivera avvägningen mellan tid, brus och uttryck."
-            ]) },
-            { title: "Välj och förklara", content: lessonSlide("Tre bilder och ett motiverat val", "100–120 min · överföring och inlämning", [
-                "Kopiera och kontrollera bilderna. Välj din stillastående serie med ISO 400, 800 och 1600. Spara originalen.",
-                "Jämför samma del vid 100 procent förstoring. Granska sedan hela bilden i vanlig visningsstorlek. Redigera inte bilderna olika inför jämförelsen.",
-                "Lämna de tre bilderna med ISO, bländare och slutartid på skolans anvisade plats. Ett eventuellt rörelsepar kan bifogas.",
-                "Besvara kort: Vad hände med tiden? Vad såg du i skuggor och detaljer? Vilket ISO skulle du välja här, och varför? Du kan också förklara muntligt."
-            ]) },
-            { title: "Bildsamtal och avslutning", content: lessonSlide("Vad fungerade för ditt motiv?", "120–140 min bildsamtal · 140–150 min utcheckning", [
-                "Jämför några serier. Beskriv vad du faktiskt ser och skilj det från vad du hade förväntat dig. Olika kameror kan ge olika resultat.",
-                "Förklara när du skulle välja mer ljus eller kamerastöd, och när du skulle höja ISO för att få en kortare tid.",
-                "Kontrollera bådas överförda bilder. Formatera först efter klartecken och säker lagring enligt skolans rutin.",
-                "Lämna kameran i väskan. Nästa gång kombinerar vi bländare, slutartid och ISO i manuellt läge."
-            ]) }
+            {title:"ISO & digitalt brus",content:lessonSlide("När ljuset inte räcker","Lektion 4 · 150 minuter",["Ändra ISO och undersök vad som händer med slutartid och bildkvalitet.","Jämför tre egna bilder och motivera ett ISO-val.","Arbeta i par, men varje elev tar en egen serie."])},
+            {title:"Vad gör ISO?",content:lessonSlide("ISO påverkar bildens ljushet","15–30 min",["Högre ISO kan göra det möjligt att använda kortare slutartid.","Högre ISO kan samtidigt göra brus mer synligt, särskilt i mörka partier.","Lite brus kan vara en rimlig kompromiss om alternativet är rörelseoskärpa."])},
+            {title:"Grunduppgift",content:lessonSlide("ISO 400 · 800 · 1600","40–65 min",["Välj Av på Canon eller A på Nikon, f/5,6 och ett stilla motiv.","Ta tre bilder med ISO 400, 800 och 1600. Kameran väljer slutartiden.","Behåll utsnitt, fokus och ljus så lika som möjligt.","Anteckna slutartiden för varje bild."])},
+            {title:"Jämför",content:lessonSlide("Titta på samma del av bilden","75–120 min",["Jämför först vid 100 procent och sedan hela bilden.","Vad händer med tiden? Ser du skillnader i mörka ytor och detaljer?", "Om skillnaden är liten är det också ett giltigt resultat."])},
+            {title:"Avslutning",content:lessonSlide("Vilket ISO väljer du – och varför?","120–150 min",["Välj det ISO som passar motivet och situationen bäst.","Förklara ditt val med bildkvalitet, slutartid och motivets rörelse.","Säkra bilderna innan minneskortet formateras."])}
         ]
     };
 
     function lessonFourPlan() {
         return `<div class="lesson-plan space-y-5 mt-6 border-t pt-5">
             <h6 class="font-bold text-xl">Mål och redovisning</h6>
-            <p>Ändra ISO, undersök slutartiden och jämför brus och detaljer. Lämna tre egna bilder vid ISO 400, 800 och 1600 med inställningar och en kort skriftlig eller muntlig förklaring av ditt ISO-val.</p>
-            <p><strong>Fem par, egna bildserier.</strong> Turas om som fotograf och medhjälpare. Grunduppgiften görs på samma kamera.</p>
-            <div class="overflow-x-auto"><table class="w-full text-left"><thead><tr><th class="p-2">Minuter</th><th class="p-2">Moment</th><th class="p-2">Arbetsgång</th></tr></thead><tbody>
-            ${lessonFourSchedule.map(row => '<tr>' + row.map(cell => '<td class="p-2 border-t align-top">' + cell + '</td>').join('') + '</tr>').join('')}
-            </tbody></table></div>
-            <div class="bg-amber-50 rounded-2xl p-5"><h6 class="font-bold">Din foto-checklista</h6><ol class="list-decimal pl-6 space-y-2 mt-2">
-                <li>Välj ett stilla motiv med detaljer och mörka jämna ytor. Använd stöd och oförändrat ljus.</li>
-                <li>Canon: Av. Nikon: A. Välj f/5,6 och fast ISO 400. Stäng av Auto ISO och blixt.</li>
-                <li>Ta tre bilder vid ISO 400, 800 och 1600. Behåll kamera, bländare, zoom, utsnitt, fokus och bildbehandling. Kameran ändrar tiden.</li>
-                <li>Anteckna tiderna. Kontrollera lika ljushet; ta om serien om ljuset ändras eller fokus blir fel.</li>
-                <li>Byt roller. Alla tar egna bilder. Prova därefter samma enkla rörelse med ISO 400 och 1600 om grundserien är klar.</li>
-                <li>Jämför samma bildområde vid 100 procent och sedan hela bilden. Lämna tre bilder med inställningar och motivera ditt val.</li>
-            </ol></div>
-            <p><strong>Reflektera:</strong> Vad hände med tiden? Hur förändrades brus och detaljer? Vilket ISO passar ditt motiv och varför? Beskriv även om du inte ser någon tydlig skillnad.</p>
-            <p><strong>Felsökning:</strong> Suddigt stilla motiv: kontrollera fokus och stöd. Olika ljushet: kontrollera fast bländare, Auto ISO, exponeringskompensation och ljuset. Ingen brusskillnad: jämför samma skuggparti och behåll samma redigering. Hitta inte på skillnader.</p>
-            <p><strong>Fördjupning:</strong> undersök när rörelseoskärpa blir mer störande än brus. Ingen behöver använda ISO över 1600. Övningen kan göras inomhus i lugnt fönsterljus.</p>
-            <p><strong>Utcheckning:</strong> kontrollera bådas sparade bilder. Formatera endast efter klartecken och verifierad lagring.</p>
-            <button onclick="openQuiz('m1l3')" class="bg-slate-900 text-white px-5 py-3 rounded-xl">Starta lektionen: quiz om slutartid</button>
+            <p>Undersök hur ISO påverkar slutartid och bildkvalitet. Lämna tre egna bilder vid ISO 400, 800 och 1600 samt en kort förklaring av vilket ISO du skulle välja och varför.</p>
+            <div class="overflow-x-auto"><table class="w-full text-left"><thead><tr><th class="p-2">Minuter</th><th class="p-2">Moment</th><th class="p-2">Arbetsgång</th></tr></thead><tbody>${lessonFourSchedule.map(row=>'<tr>'+row.map(cell=>'<td class="p-2 border-t align-top">'+cell+'</td>').join('')+'</tr>').join('')}</tbody></table></div>
+            <div class="bg-amber-50 rounded-2xl p-5"><h6 class="font-bold">Din foto-checklista</h6><ol class="list-decimal pl-6 space-y-2 mt-2"><li>Välj ett stilla motiv med detaljer och en mörkare yta.</li><li>Canon: Av. Nikon: A. f/5,6 och fast ISO.</li><li>Ta ISO 400, 800 och 1600. Behåll motiv, zoom, fokus och utsnitt.</li><li>Anteckna slutartiderna.</li><li>Jämför samma del av bilderna i samma förstoring.</li><li>Motivera vilket ISO du skulle välja.</li></ol></div>
             <button onclick="openQuiz('m1l4')" class="bg-amber-700 text-white px-5 py-3 rounded-xl">Quiz om ISO – repetition nästa lektion</button>
         </div>`;
     }
 
-    const lessonFiveSchedule = [["0–15", "Repetition", "Gör ISO-quizet från lektion 4. Förklara en avvägning mellan brus och rörelseoskärpa."], ["15–30", "M-läge och simulator", "Förutsäg och prova hur en inställning påverkar ljusheten. Bekanta dig med ljusmätaren och RAW/JPEG."], ["30–40", "Kamerastart", "Välj M, fast ISO och f/5,6. Hitta reglagen och ta en grundbild i stabilt ljus."], ["40–65", "Fotopass 1", "Ta en egen serie: grundbild, mörkare, ljusare. Ändra bara tiden och byt sedan roller."], ["65–75", "Paus", "Lägg kamerorna säkert."], ["75–100", "Fotopass 2", "Kontrollera skillnaderna, ta om och välj ditt uttryck. Prova frivillig fördjupning när båda har egna serier."], ["100–120", "Urval och inlämning", "Lämna tre egna bilder, inställningar och en kort förklaring."], ["120–140", "Bildsamtal", "Jämför avsikt och resultat. Ge ett konkret förslag till nästa försök."], ["140–150", "Utcheckning", "Kontrollera sparade filer för båda i paret. Lämna utrustningen och formulera ett nästa steg."]];
-    presentations.m1l5 = {badge:"Lektion 5", label:"Presentation Lektion 5", slides:[
-{title:"Du tar kontroll",content:lessonSlide("Manuellt läge – ett val i taget","Lektion 5 · 150 minuter",["I dag kombinerar du bländare, slutartid och ISO i M-läge.", "Du ska kunna ändra bildens ljushet med avsikt och förklara ditt val.", "Arbeta i fem par. Turas om med kameran – var och en tar och lämnar in tre egna bilder.", "M-läge är ett verktyg att öva på. Bildens syfte avgör vilka inställningar som passar."])},
-{title:"Återblick på ISO",content:lessonSlide("Vad tar du med dig?","0–15 min · repetition",["Gör quizet om ISO från lektion 4 och jämför era resonemang.", "När kan ett högre ISO vara värt att använda trots risken för mer brus?", "Beskriv vad bländare, slutartid och ISO påverkar. Vilken inställning vill du förstå bättre?"])},
-{title:"Tre reglage",content:lessonSlide("I M-läge väljer du själv","15–30 min · samband och simulator",["Bländaren påverkar ljusinsläpp och skärpedjup. Ett lägre f-tal betyder en större öppning.", "Slutartiden påverkar hur länge ljus samlas och hur rörelse återges.", "ISO påverkar bildens ljushet, men släpper inte in mer ljus.", "Med fast ISO i M-läge kompenserar inte kameran automatiskt när du ändrar bländare eller tid. Autofokus kan fortfarande användas.", "Prova simulatorn: förutsäg vad som händer när tiden fördubblas. Ändra bara ett reglage och jämför."])},
-{title:"Ljusmätaren",content:lessonSlide("En vägledning – inte ett facit","15–30 min · undersök kamerans förslag",["Ljusmätaren jämför dina inställningar med kamerans uppskattning. Kontrollera vilket håll som är plus och minus på din kamera.", "Börja nära noll på skalan, ta en bild och granska den. Noll garanterar inte att motivet får den ljushet du vill ha.", "Ett ljust eller mörkt motiv kan lura mätningen. Välj vilka detaljer och vilken känsla du vill behålla.", "Granska bilden och histogrammet om det finns tillgängligt. En topp vid kanten kan betyda förlorade detaljer; motivet avgör om det är ett problem."])},
-{title:"RAW och JPEG",content:lessonSlide("Välj format med ett syfte","Kort introduktion före fotograferingen",["JPEG är en färdigbearbetad, komprimerad bild som är enkel att visa och lämna in.", "RAW innehåller mer av kamerans bilddata och ger större utrymme vid bearbetning, men kräver ett program som kan läsa formatet.", "RAW räddar inte fel fokus eller alla överexponerade detaljer. Bra inställningar behövs fortfarande.", "Använd JPEG i grundövningen. Välj RAW + JPEG bara om du har ett fungerande arbetsflöde. Behåll samma format och bildstil genom serien."])},
-{title:"Förbered kameran",content:lessonSlide("M · f/5,6 · fast ISO","30–40 min · hitta dina reglage",["Välj M på Canon eller Nikon. Stäng av Auto ISO och blixt. Börja med ISO 400 och f/5,6.", "Hitta hur du ändrar slutartid, bländare och ISO på just din kamera. Ta hjälp om ett reglage är oklart.", "Välj ett stilla motiv i jämnt ljus. Behåll samma zoom, utsnitt och fokus. Stöd kameran säkert och använd gärna självutlösare.", "Anpassa slutartiden tills grundbilden får en användbar ljushet. Om ljuset är svagt kan du välja ISO 800 eller 1600 innan du börjar serien.", "Lås sedan ditt ISO-val och bländaren. f/5,6 är ett praktiskt startvärde för kitobjektiven genom zoomområdet."])},
-{title:"Grunduppgift",content:lessonSlide("Tre bilder av samma motiv","40–65 min · egna bildserier",["1. Ta grundbilden. Anteckna slutartid, bländare och ISO.", "2. Halvera tiden för en mörkare bild. Exempel: 1/125 s → 1/250 s.", "3. Återgå till grundtiden och fördubbla den för en ljusare bild. Exempel: 1/125 s → 1/60 s, ungefär ett steg.", "Behåll bländare, ISO, motiv, ljus och kamerans position. Exempeltiderna är inte krav – utgå från din egen grundbild.", "Jämför resultatet och byt roller. Båda behöver en egen serie."])},
-{title:"Paus och omtag",content:lessonSlide("Välj ditt uttryck","65–75 min paus · 75–100 min fotopass 2",["Kontrollera att serien visar tre avsiktliga ljushetsval. Ta om om ljuset ändrats eller bilderna blivit oskarpa.", "Välj den bild som passar din idé bäst. En mörkare eller ljusare bild kan vara ett medvetet uttryck.", "Felsök: fel ljushet – kontrollera tid och fast ISO. Oskärpa – kontrollera fokus, stöd och motivrörelse.", "Frivillig fördjupning: jämför f/5,6 vid 1/125 s med f/8 vid 1/60 s och samma ISO. Ungefär samma ljushet, men vad händer med skärpedjup eller rörelse?", "Anpassa även fördjupningens tider till ljuset. Grundserien går först."])},
-{title:"Välj och förklara",content:lessonSlide("Tre bilder och ett motiverat val","100–120 min · överföring och inlämning",["Spara och öppna originalfilerna på datorn. Lämna grundbilden, den mörkare och den ljusare bilden.", "Redovisa slutartid, bländare och ISO för varje bild. Döp dem exempelvis till namn_L5_grund, namn_L5_mork och namn_L5_ljus.", "Jämför utan automatisk korrigering av ljusheten. Behåll samma bearbetning och visningsförhållanden.", "Förklara kort, skriftligt eller muntligt: Vad ville du visa? Vad ändrade du? Vilken bild fungerar bäst och varför? Vad vill du prova nästa gång?"])},
-{title:"Bildsamtal och avslutning",content:lessonSlide("Från inställning till bildidé","120–140 min bildsamtal · 140–150 min utcheckning",["Visa din serie. Beskriv först vad du ser och sedan vilket uttryck du upplever.", "Ge en kamrat återkoppling: ett val som fungerar och ett konkret förslag att prova.", "Kontrollera att bådas bilder är sparade och går att öppna. Formatera minneskortet först efter klartecken och verifierad lagring.", "Lämna kameran säkert. Nästa lektion använder du tekniken i en samlad uppgift med återkoppling och omtag."])}
-]};
+    const lessonFiveSchedule = [
+        ["0–15", "Repetition", "Quiz om ISO och exponeringstriangeln."],
+        ["15–30", "M-läge", "Bländare, slutartid, ISO och ljusmätaren som vägledning."],
+        ["30–40", "Kamerastart", "M, f/5,6, fast ISO och ett stilla motiv."],
+        ["40–65", "Fotopass 1", "Grundbild, mörkare bild och ljusare bild."],
+        ["65–75", "Paus", "Lägg kamerorna säkert."],
+        ["75–100", "Omtag", "Kontrollera serien och välj ett medvetet uttryck."],
+        ["100–120", "Urval", "Tre bilder med inställningar och motivering."],
+        ["120–140", "Bildsamtal", "Från rätt exponering till medveten bildidé."],
+        ["140–150", "Utcheckning", "Säkra bilder och lämna kameran."]
+    ];
 
-    function lessonFivePlan() {
-        return `<div class="lesson-plan space-y-5 mt-6 border-t pt-5">
-        <h6 class="font-bold text-xl">Mål och redovisning</h6>
-        <p>Kombinera bländare, tid och fast ISO i M-läge. Ta tre egna bilder av samma motiv med olika ljushet och motivera vilket uttryck du föredrar. Arbeta i fem par med en kamera per par.</p>
-        <div class="overflow-x-auto"><table class="w-full text-left"><thead><tr><th class="p-2">Minuter</th><th class="p-2">Moment</th><th class="p-2">Arbetsgång</th></tr></thead><tbody>
-        ${lessonFiveSchedule.map(row => '<tr>' + row.map(cell => '<td class="p-2 border-t align-top">' + cell + '</td>').join('') + '</tr>').join('')}
-        </tbody></table></div>
-        <div class="bg-amber-50 rounded-2xl p-5"><h6 class="font-bold">Din foto-checklista</h6><ol class="list-decimal pl-6 space-y-2 mt-2">
-        <li>Välj ett stilla motiv i stabilt ljus, exempelvis ett föremål vid ett fönster. Stöd kameran säkert.</li>
-        <li>Välj M, f/5,6 och ISO 400. Stäng av Auto ISO och blixt. Använd JPEG och samma bildstil genom serien.</li>
-        <li>Välj slutartid med stöd av ljusmätaren och granska en provbild. Anpassa ISO före serien vid behov, men håll det sedan fast.</li>
-        <li>Ta grundbilden. Ta sedan en mörkare bild med halverad tid och en ljusare med dubbla grundtiden. Ändra bara tiden.</li>
-        <li>Behåll motiv, ljus, zoom, utsnitt och fokus. Anteckna alla inställningar. Byt roller så att båda tar egna serier.</li>
-        <li>Spara och välj tre egna bilder. Motivera ditt favoritresultat och föreslå ett nästa försök.</li></ol></div>
-        <p><strong>Felsökning:</strong> Lika ljusa bilder: kontrollera att M och fast ISO verkligen är valda och att visningsprogrammet inte korrigerar bilderna. Suddigt: kontrollera stöd, fokus och rörelse. Blinkande ljusmätare eller värde utanför skalan: ändra tiden och kontrollera en provbild. Ingen viss tid passar allt ljus.</p>
-        <p><strong>Fördjupning:</strong> minska bländaröppningen ett steg (f/5,6 till f/8) och fördubbla tiden. Jämför ljushet och skärpedjup med samma ISO. Gör detta först när båda har grundserien.</p>
-        <p><strong>Reflektion:</strong> Vad ändrade du, vad behöll du och varför passar ditt val bildens syfte? Du kan svara kort i text eller muntligt.</p>
-        <p><strong>Utcheckning:</strong> öppna bådas sparade filer. Formatera bara efter klartecken och verifierad lagring. Följ skolans bildrutiner; ingen behöver vara modell.</p>
-        <button onclick="openQuiz('m1l4')" class="bg-slate-900 text-white px-5 py-3 rounded-xl">Starta lektionen: quiz om ISO</button>
-        <button onclick="openQuiz('m1l5')" class="bg-amber-700 text-white px-5 py-3 rounded-xl">Quiz om M-läge – repetition nästa lektion</button>
-        </div>`;
-    }
-
-    let currentSlide = 0;
-    let currentDeck = [];
-
-    function openPresentation(key) {
-        const pres = presentations[key];
-        if (!pres) return;
-        currentDeck = pres.slides;
-        currentSlide = 0;
-        document.getElementById('presBadge').innerText = pres.badge;
-        renderSlide();
-        document.getElementById('presentationModal').classList.remove('hidden');
-    }
-
-    function closePresentation() {
-        document.getElementById('presentationModal').classList.add('hidden');
-    }
-
-    function renderSlide() {
-        const slide = currentDeck[currentSlide];
-        document.getElementById('slideTitle').innerText = slide.title;
-        document.getElementById('slideContent').innerHTML = slide.content;
-        document.getElementById('slideCounter').innerText = `Slide ${currentSlide + 1} / ${currentDeck.length}`;
-    }
-
-    function nextSlide() {
-        if (currentSlide < currentDeck.length - 1) {
-            currentSlide++;
-            renderSlide();
-        }
-    }
-
-    function prevSlide() {
-        if (currentSlide > 0) {
-            currentSlide--;
-            renderSlide();
-        }
-    }
-
-    // Keyboard navigation for presentation
-    document.addEventListener('keydown', function(e) {
-        const modal = document.getElementById('presentationModal');
-        if (!modal.classList.contains('hidden')) {
-            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
-            if (e.key === 'ArrowLeft') prevSlide();
-            if (e.key === 'Escape') closePresentation();
-        }
-    });
-
-    // --- SIMULATOR LOGIC (Anpassad för Kit-objektiv) ---
-    let simSettings = { ap: 1, sh: 3, iso: 2 };
-    const apValues = ["f/3.5", "f/5.6", "f/8.0", "f/11", "f/16", "f/22"];
-    const shValues = ["1/1000", "1/500", "1/250", "1/125", "1/60", "1/30", "1/15", "1/8", "1s"];
-    const isoValues = ["100", "200", "400", "800", "1600", "3200"];
-
-    function exposureStops(settings) {
-        const aperture = [3.5, 5.6, 8, 11, 16, 22][settings.ap];
-        const seconds = [1/1000, 1/500, 1/250, 1/125, 1/60, 1/30, 1/15, 1/8, 1][settings.sh];
-        const iso = Number(isoValues[settings.iso]);
-        return Math.log2(seconds / (1/125)) + Math.log2(iso / 400) - 2 * Math.log2(aperture / 5.6);
-    }
-
-    function resetSimulator() {
-        simSettings = { ap: 1, sh: 3, iso: 2 };
-        document.getElementById('inputAperture').value = 1;
-        document.getElementById('inputShutter').value = 3;
-        document.getElementById('inputISO').value = 2;
-        updateSimulator();
-    }
-
-    function updateSimulator() {
-        const canvas = document.getElementById('simCanvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const w = canvas.width;
-        const h = canvas.height;
-
-        const exposure = exposureStops(simSettings);
-
-        ctx.clearRect(0, 0, w, h);
-
-        const blurAmount = (5 - simSettings.ap) * 4;
-        ctx.fillStyle = "#64748b";
-        ctx.fillRect(0, 0, w, h);
-        ctx.fillStyle = "#334155";
-        ctx.filter = `blur(${blurAmount}px)`;
-        ctx.fillRect(50, 100, 100, 100);
-        ctx.fillRect(400, 50, 150, 200);
-
-        ctx.filter = "none";
-        ctx.fillStyle = "#b45309";
-        const motionBlur = simSettings.sh > 5 ? (simSettings.sh - 5) * 8 : 0;
-        if (motionBlur > 0) ctx.filter = `blur(${motionBlur}px)`;
-        ctx.beginPath();
-        ctx.arc(w/2, h/2, 60, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.filter = "none";
-
-        if (simSettings.iso > 3) {
-            const noiseLevel = (simSettings.iso - 3) * 40;
-            for(let i=0; i<noiseLevel * 10; i++) {
-                ctx.fillStyle = `rgba(255,255,255,${Math.random()*0.15})`;
-                ctx.fillRect(Math.random()*w, Math.random()*h, 1, 1);
-            }
-        }
-
-        let alpha = 0;
-        if (exposure > 0) {
-            alpha = Math.min(1 - Math.pow(2, -exposure), 0.95);
-            ctx.fillStyle = `rgba(255,255,255,${alpha})`;
-            ctx.fillRect(0,0,w,h);
-        } else if (exposure < 0) {
-            alpha = Math.min(1 - Math.pow(2, exposure), 0.95);
-            ctx.fillStyle = `rgba(0,0,0,${alpha})`;
-            ctx.fillRect(0,0,w,h);
-        }
-
-        document.getElementById('valAperture').innerText = apValues[simSettings.ap];
-        document.getElementById('valShutter').innerText = shValues[simSettings.sh];
-        document.getElementById('valISO').innerText = isoValues[simSettings.iso];
-
-        const indicator = document.getElementById('exposureIndicator');
-        indicator.innerText = `Relativ ljushet: ${exposure >= 0 ? '+' : ''}${exposure.toFixed(1)} steg jämfört med start`;
-        indicator.style.color = Math.abs(exposure) < 0.15 ? '#15803d' : '#334155';
-    }
-
-    // --- APP NAVIGATION & RENDER ---
-    function showSection(id, btn) {
-        init();
-        document.querySelectorAll('.content-section').forEach(s => s.classList.add('hidden'));
-        document.getElementById(id).classList.remove('hidden');
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        btn.classList.add('active');
-    }
-
-    function openModal(moduleId) {
-        const module = courseData.modules.find(m => m.id === moduleId);
-        document.getElementById('modalTitle').innerText = module.title;
-        document.getElementById('modalWeeks').innerText = module.weeks;
-
-        const presBanner = document.getElementById('presentationBanner');
-        const presButtons = document.getElementById('presentationButtons');
-        const availablePres = module.lessons
-            .map((less, idx) => ({ key: `m${module.id}l${idx+1}`, idx }))
-            .filter(p => presentations[p.key]);
-
-        if (availablePres.length > 0) {
-            presBanner.classList.remove('hidden');
-            presButtons.innerHTML = availablePres.map(p => `
-                <button onclick="openPresentation('${p.key}')" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-3 rounded-2xl font-bold uppercase tracking-wider text-xs whitespace-nowrap transition shadow-lg">
-                    🖥️ ${presentations[p.key].badge}
-                </button>
-            `).join('');
-        } else {
-            presBanner.classList.add('hidden');
-            presButtons.innerHTML = '';
-        }
-
-        const lessonCont = document.getElementById('modalLessons');
-        lessonCont.innerHTML = `
-            <div class="mb-8">
-                <h4 class="text-xs font-black text-amber-700 uppercase tracking-widest mb-2">Modulens mål</h4>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    ${module.goals.map(g => `<div class="bg-amber-50 p-3 rounded-xl text-xs font-bold text-amber-900 border border-amber-100">${g}</div>`).join('')}
-                </div>
-            </div>
-            <h4 class="text-xl font-black mb-6 italic">Lektionsplanering</h4>
-            ${module.lessons.map((less, idx) => {
-                const key = `m${module.id}l${idx+1}`;
-                const hasPres = !!presentations[key];
-                return `
-                <div class="lesson-node mb-6">
-                    <div class="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm">
-                        <div class="flex items-center justify-between gap-3 mb-2 flex-wrap">
-                            <h5 class="font-black text-slate-900">Lektion ${idx+1}: ${less.title}</h5>
-                            ${hasPres ? `<button onclick="openPresentation('${key}')" class="bg-slate-900 hover:bg-amber-700 text-white px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest transition shrink-0">🖥️ Presentation</button>` : ''}
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                            <div><span class="text-[10px] font-black uppercase text-slate-400 block mb-1">Teori / Genomgång</span>${less.theory}</div>
-                            <div class="bg-amber-50 p-4 rounded-xl font-medium text-amber-900 border border-amber-100">
-                                <span class="text-[10px] font-black uppercase block mb-1">Praktisk Uppgift</span>${less.practical}
-                            </div>
-                        </div>
-                        ${less.plan === "manual" ? lessonFivePlan() : less.plan === "iso" ? lessonFourPlan() : less.plan ? lessonThreePlan() : ""}
-                    </div>
-                </div>
-            `}).join('')}
-        `;
-
-        const sim = document.getElementById('simulatorContainer');
-        module.id === 1 ? sim.classList.remove('hidden') : sim.classList.add('hidden');
-        if (module.id === 1) setTimeout(updateSimulator, 50);
-
-        document.getElementById('moduleModal').classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        document.getElementById('moduleModal').classList.add('hidden');
-        document.body.style.overflow = 'auto';
-    }
-
-    let appInitialized = false;
-    function init() {
-        if (appInitialized) return;
-        const grid = document.getElementById('moduleGrid');
-        courseData.modules.forEach(m => {
-            const card = document.createElement('div');
-            card.className = "module-card bg-white p-10 rounded-[2.5rem] border border-slate-100 cursor-pointer transition-all flex flex-col items-center text-center";
-            card.onclick = () => openModal(m.id);
-            card.innerHTML = `
-                <div class="text-5xl mb-4">${m.icon}</div>
-                <div class="text-[10px] font-black text-amber-700 uppercase tracking-widest mb-2">${m.weeks}</div>
-                <h3 class="text-2xl font-black mb-4">${m.title}</h3>
-                <p class="text-slate-500 text-sm mb-6">${m.desc}</p>
-                <div class="mt-auto bg-slate-900 text-white px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-widest">Visa planering</div>
-            `;
-            grid.appendChild(card);
-        });
-
-        initQuizPage();
-
-        document.getElementById('inputAperture').oninput = (e) => { simSettings.ap = parseInt(e.target.value); updateSimulator(); };
-        document.getElementById('inputShutter').oninput = (e) => { simSettings.sh = parseInt(e.target.value); updateSimulator(); };
-        document.getElementById('inputISO').oninput = (e) => { simSettings.iso = parseInt(e.target.value); updateSimulator(); };
-        appInitialized = true;
-
-        // Optional charts must never prevent lessons, quizzes or simulator controls from starting.
-        if (typeof Chart !== 'function') return;
-        try {
-
-        new Chart(document.getElementById('timelineChart').getContext('2d'), {
-            type: 'bar',
-            data: {
-                labels: courseData.modules.map(m => m.title),
-                datasets: [{ data: [6, 7, 6, 6, 6, 6], backgroundColor: '#b45309', borderRadius: 12 }]
-            },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-        });
-
-        new Chart(document.getElementById('lessonChart').getContext('2d'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Repetition & genomgång', 'Kamerastöd & fotografering', 'Paus', 'Urval & bildsamtal', 'Utcheckning'],
-                datasets: [{ data: [30, 60, 10, 40, 10], backgroundColor: ['#f59e0b', '#ffffff', '#94a3b8', '#475569', '#64748b'], borderWidth: 0 }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false, cutout: '70%',
-                plugins: {
-                    legend: { position: 'bottom', labels: { color: 'white', font: { size: 10 } } },
-                    tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.raw} min` } }
-                }
-            }
-        });
-
-        } catch (error) {
-            console.warn('Översiktsdiagrammen kunde inte visas. Lektionsinnehållet är tillgängligt.', error);
-        }
-    }
-
-    // --- QUIZ PAGE & RUNTIME ---
-    function initQuizPage() {
-        const grid = document.getElementById('quizGrid');
-        grid.innerHTML = '';
-        Object.keys(quizzes).forEach(key => {
-            const quiz = quizzes[key];
-            const card = document.createElement('div');
-            card.className = "module-card bg-white p-10 rounded-[2.5rem] border border-slate-100 cursor-pointer transition-all flex flex-col items-center text-center";
-            card.onclick = () => openQuiz(key);
-            card.innerHTML = `
-                <div class="text-5xl mb-4">${quiz.icon}</div>
-                <div class="text-[10px] font-black text-amber-700 uppercase tracking-widest mb-2">${quiz.questions.length} frågor</div>
-                <h3 class="text-2xl font-black mb-4">${quiz.title}</h3>
-                <p class="text-slate-500 text-sm mb-6">${quiz.desc}</p>
-                <div class="mt-auto bg-slate-900 text-white px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-widest">Starta quiz</div>
-            `;
-            grid.appendChild(card);
-        });
-    }
-
-    // Repetitionsquiz för lektion 3. Ingen extern inskickning.
-    quizzes.m1l3 = {
-        title: "Lektion 3: Slutartid & rörelse", desc: "Sex frågor att använda i början av lektion 4.", icon: "⏱️",
-        questions: [
-            { prompt: "Du vill frysa en snabb rörelse. Vilken tid är den bästa utgångspunkten av dessa?", options: [{id:"a",text:"1/15 s"},{id:"b",text:"1/1000 s"},{id:"c",text:"1 s"},{id:"d",text:"Slutartiden påverkar inte rörelse"}], correct:"b", explanation:"1/1000 s är kortast och ger bäst utgångspunkt här. Resultatet beror också på rörelsens hastighet, riktning, avstånd, ljus och fokus." },
-            { prompt: "Vad bestämmer du i Tv på Canon eller S på Nikon?", options: [{id:"a",text:"Enbart bildens färg"},{id:"b",text:"Endast fokus"},{id:"c",text:"Slutartiden; kameran väljer bländare inom objektivets gränser"},{id:"d",text:"Bara filnamnet"}], correct:"c", explanation:"I slutartidsprioritet väljer du tiden. I övningen använder vi fast ISO; kameran anpassar bländaren så långt det går." },
-            { prompt: "En stillastående bakgrund är skarp, men en gående person får rörelsespår vid 1/15 s. Vad är den rimligaste förklaringen?", options: [{id:"a",text:"Personen hann röra sig under exponeringen"},{id:"b",text:"Minneskortet är fullt"},{id:"c",text:"Bakgrunden har fel vitbalans"},{id:"d",text:"ISO är alltid för högt vid 1/15 s"}], correct:"a", explanation:"Rörelsespår i motivet men en skarp stillastående bakgrund tyder på motivrörelse. Om hela bilden får spår bör du även kontrollera kameraskakning." },
-            { prompt: "Du förlänger tiden från 1/250 s till 1/125 s och behåller samma bländare och ISO. Vad händer med ljuset som når sensorn?", options: [{id:"a",text:"Det halveras"},{id:"b",text:"Det ändras inte"},{id:"c",text:"Bara färgen ändras"},{id:"d",text:"Mängden ljus fördubblas"}], correct:"d", explanation:"Exponeringstiden blir dubbelt så lång. Med oförändrad bländare och oförändrat ljus når dubbelt så mycket ljus sensorn." },
-            { prompt: "Bilden är för mörk vid 1/1000 s och kameran kan inte öppna bländaren mer. Vad är ett rimligt nästa försök?", options: [{id:"a",text:"Välja 1/4000 s utan att ändra något annat"},{id:"b",text:"Söka bättre ljus, höja ISO eller prova en något längre tid"},{id:"c",text:"Formatera kortet"},{id:"d",text:"Sänka ISO utan att ändra något annat"}], correct:"b", explanation:"Dessa val kan hjälpa bildens ljushet. En längre tid kan samtidigt ge mer rörelseoskärpa, så kontrollera uttrycket efter ändringen." },
-            { prompt: "Vad ska vara klart innan ni formaterar ett delat minneskort?", options: [{id:"a",text:"En person har sett sin bästa bild på kameran"},{id:"b",text:"Bilderna har fått nya filnamn"},{id:"c",text:"Bådas bilder är överförda, kontrollerade och lagrade enligt skolans rutin, och läraren har gett klartecken"},{id:"d",text:"Kameran har legat i väskan"}], correct:"c", explanation:"Formatering raderar kortets innehåll. Kontrollera lagringen för båda eleverna och följ lärarens rutin; formatera inte om något är osäkert." }
+    presentations.m1l5 = {
+        badge:"Lektion 5", label:"Presentation Lektion 5",
+        slides:[
+            {title:"Manuellt läge",content:lessonSlide("Du styr exponeringen","Lektion 5 · 150 minuter",["I M-läge väljer du bländare, slutartid och ISO själv.","Ljusmätaren är vägledning – inte ett facit.","Målet är att göra ett medvetet val, inte att alltid stå på noll."])},
+            {title:"Exponeringstriangeln",content:lessonSlide("Tre reglage – ett bildresultat","15–30 min",["Bländaren påverkar ljus och skärpedjup.","Slutartiden påverkar ljus och rörelse.","ISO påverkar bildens ljushet och kan påverka brus.","När du ändrar en del kan du behöva kompensera med en annan."])},
+            {title:"Förbered kameran",content:lessonSlide("M · f/5,6 · fast ISO","30–40 min",["Välj M, f/5,6 och ISO 400 som start.","Stäng av Auto ISO och blixt.","Välj ett stilla motiv i stabilt ljus och håll utsnittet lika genom serien."])},
+            {title:"Tre ljushetsval",content:lessonSlide("Grund · mörkare · ljusare","40–65 min",["Ta en grundbild med användbar ljushet.","Halvera tiden för en mörkare bild, till exempel 1/125 → 1/250 s.","Fördubbla grundtiden för en ljusare bild, ungefär 1/125 → 1/60 s.","Ändra bara slutartiden i serien."])},
+            {title:"RAW och JPEG",content:lessonSlide("Välj format med ett syfte","Kort introduktion",["JPEG är färdigbearbetat och enkelt att visa.","RAW innehåller mer bilddata för efterbearbetning men kräver kompatibelt program.","RAW räddar inte fel fokus eller alla utfrätta detaljer."])},
+            {title:"Välj och förklara",content:lessonSlide("Vilket uttryck fungerar?","100–140 min",["Lämna de tre bilderna med slutartid, bländare och ISO.","Förklara vilken bild som passar din idé bäst och varför.","Nästa lektion börjar vi kombinera tekniken med hur bilden byggs upp."])}
         ]
     };
 
-    quizzes.m1l4 = {
-    "title": "Lektion 4: ISO & digitalt brus",
-    "desc": "Sex frågor för repetition i början av lektion 5.",
-    "icon": "🌗",
-    "questions": [
-        {
-            "prompt": "Vad händer normalt om du höjer ISO men behåller samma bländare, slutartid och ljus?",
-            "options": [
-                {
-                    "id": "a",
-                    "text": "Bilden återges ljusare"
-                },
-                {
-                    "id": "b",
-                    "text": "Objektivet släpper in mer ljus"
-                },
-                {
-                    "id": "c",
-                    "text": "Slutaren är öppen längre"
-                },
-                {
-                    "id": "d",
-                    "text": "Fokus flyttas automatiskt"
-                }
-            ],
-            "correct": "a",
-            "explanation": "Högre ISO påverkar bildens ljushet via kamerans signalhantering. Med samma bländare och tid når inte mer ljus sensorn."
-        },
-        {
-            "prompt": "Du använder Av/A med samma bländare och oförändrat ljus. Vad händer vanligtvis när du höjer ISO?",
-            "options": [
-                {
-                    "id": "a",
-                    "text": "Kameran väljer alltid längre tid"
-                },
-                {
-                    "id": "b",
-                    "text": "Kameran ändrar brännvidden"
-                },
-                {
-                    "id": "c",
-                    "text": "Kameran kan välja kortare tid och behålla ungefär samma ljushet"
-                },
-                {
-                    "id": "d",
-                    "text": "Ingenting kan ändras"
-                }
-            ],
-            "correct": "c",
-            "explanation": "Kameran kan kompensera högre ISO med kortare slutartid. Läs av tiden och kontrollera att kameran inte nått en gräns."
-        },
-        {
-            "prompt": "Vilken jämförelse är mest rättvis när du undersöker brus?",
-            "options": [
-                {
-                    "id": "a",
-                    "text": "Olika kameror, motiv och förstoring"
-                },
-                {
-                    "id": "b",
-                    "text": "Samma kamera, motiv och bildområde i samma förstoring, med liknande ljushet och samma bildbehandling"
-                },
-                {
-                    "id": "c",
-                    "text": "En liten miniatyr och en kraftigt förstorad bild"
-                },
-                {
-                    "id": "d",
-                    "text": "En ljus utomhusbild och en mörk inomhusbild"
-                }
-            ],
-            "correct": "b",
-            "explanation": "Håll så mycket som möjligt lika. I vår Av/A-serie ändras ISO och kamerans slutartid; anteckna båda."
-        },
-        {
-            "prompt": "En gående person blir suddig vid låg ISO och lång tid. Vad kan ett högre ISO hjälpa dig med?",
-            "options": [
-                {
-                    "id": "a",
-                    "text": "Det garanterar rätt fokus"
-                },
-                {
-                    "id": "b",
-                    "text": "Det får personen att stå still"
-                },
-                {
-                    "id": "c",
-                    "text": "Det tar bort allt brus"
-                },
-                {
-                    "id": "d",
-                    "text": "Det kan möjliggöra kortare tid och mindre rörelseoskärpa"
-                }
-            ],
-            "correct": "d",
-            "explanation": "Högre ISO kan ge utrymme för kortare tid. Lite brus kan vara en rimlig kompromiss; resultatet beror även på rörelse och fokus."
-        },
-        {
-            "prompt": "Du ser ingen tydlig brusskillnad mellan dina tre bilder. Vad är ett bra nästa steg?",
-            "options": [
-                {
-                    "id": "a",
-                    "text": "Beskriv det du ser och kontrollera samma skuggparti vid samma förstoring"
-                },
-                {
-                    "id": "b",
-                    "text": "Skriv att ISO 1600 var sämst ändå"
-                },
-                {
-                    "id": "c",
-                    "text": "Gör bara bilden med hög ISO mörkare i efterhand"
-                },
-                {
-                    "id": "d",
-                    "text": "Radera serien direkt"
-                }
-            ],
-            "correct": "a",
-            "explanation": "Ingen tydlig skillnad är också en observation. Kamera, ljus, exponering, bildbehandling och visningsstorlek påverkar hur tydligt brus syns."
-        },
-        {
-            "prompt": "I ett exempel ger ISO 400 tiden 1/30 s. Ungefär vilken tid motsvarar ISO 1600 vid samma bländare och bildljushet?",
-            "options": [
-                {
-                    "id": "a",
-                    "text": "1 sekund"
-                },
-                {
-                    "id": "b",
-                    "text": "1/8 sekund"
-                },
-                {
-                    "id": "c",
-                    "text": "1/125 sekund"
-                },
-                {
-                    "id": "d",
-                    "text": "Fortfarande alltid 1/30 sekund"
-                }
-            ],
-            "correct": "c",
-            "explanation": "400 till 800 till 1600 är två steg. Tiden kan kortas från 1/30 till ungefär 1/60 och sedan 1/125 sekund."
-        }
-    ]
-};
-
-    quizzes.m1l5 = {"title": "Lektion 5: Manuellt läge (M)", "desc": "Sex frågor för repetition i början av lektion 6.", "icon": "🎛️", "questions": [{"prompt": "Vad styr du själv i M-läge med fast ISO?", "options": [{"id": "a", "text": "Bara fokus"}, {"id": "b", "text": "Bländare, slutartid och ISO"}, {"id": "c", "text": "Bara bildens filnamn"}, {"id": "d", "text": "Kameran väljer alltid bländaren"}], "correct": "b", "explanation": "Du väljer de tre inställningarna. Autofokus kan fortfarande användas."}, {"prompt": "Du går från 1/125 s till 1/250 s med samma ljus, bländare och ISO. Vad händer normalt?", "options": [{"id": "a", "text": "Bilden blir ljusare"}, {"id": "b", "text": "Skärpedjupet blir alltid kortare"}, {"id": "c", "text": "Bilden blir mörkare"}, {"id": "d", "text": "Ingenting förändras"}], "correct": "c", "explanation": "Tiden halveras och ungefär hälften så mycket ljus samlas. Bilden blir cirka ett steg mörkare."}, {"prompt": "Ljusmätaren står på noll. Vad betyder det?", "options": [{"id": "a", "text": "Dina inställningar stämmer med kamerans uppskattning"}, {"id": "b", "text": "Alla detaljer är garanterat bevarade"}, {"id": "c", "text": "Bildens uttryck är alltid rätt"}, {"id": "d", "text": "Du måste sluta fotografera"}], "correct": "a", "explanation": "Noll är vägledning utifrån kamerans mätning. Granska resultatet och välj ljushet efter motiv och syfte."}, {"prompt": "Vilken kombination ger ungefär samma ljushet som f/5,6 och 1/125 s med oförändrat ISO och ljus?", "options": [{"id": "a", "text": "f/8 och 1/250 s"}, {"id": "b", "text": "f/5,6 och 1/500 s"}, {"id": "c", "text": "f/8 och 1/125 s"}, {"id": "d", "text": "f/8 och 1/60 s"}], "correct": "d", "explanation": "f/8 släpper in ungefär hälften så mycket ljus per tidsenhet som f/5,6. Ungefär dubbla tiden kompenserar."}, {"prompt": "Varför stänger vi av Auto ISO i grundövningen?", "options": [{"id": "a", "text": "För att stänga av autofokus"}, {"id": "b", "text": "För att alla bilder måste tas på ISO 100"}, {"id": "c", "text": "För att kameran inte ska kompensera våra tidsändringar genom att ändra ISO"}, {"id": "d", "text": "För att RAW annars inte fungerar"}], "correct": "c", "explanation": "Fast ISO gör sambandet tydligt när vi ändrar enbart slutartiden."}, {"prompt": "Vilket påstående om RAW och JPEG stämmer?", "options": [{"id": "a", "text": "RAW gör alla bilder skarpa"}, {"id": "b", "text": "JPEG är färdigbearbetat; RAW ger mer utrymme för bearbetning men behöver kompatibelt program"}, {"id": "c", "text": "JPEG kan inte visas på dator"}, {"id": "d", "text": "RAW räddar alltid helt utfrätta högdagrar"}], "correct": "b", "explanation": "Välj format efter arbetsflödet. Inget format ersätter rätt fokus och genomtänkta inställningar."}]};
-
-    let quizState = { key: null, index: 0, score: 0, answered: false, name: '' };
-    let quizResults = [];
-    // OBS: extern inskickning (t.ex. till Google Forms) är medvetet borttagen här av GDPR-skäl.
-    // Resultat sparas just nu enbart lokalt i webbläsaren, se quizResults ovan och "Se resultat"-vyn
-    // med CSV-export. En central lösning via skolans egen Microsoft 365 (Power Automate) är på gång.
-
-    function openQuiz(key) {
-        quizState = { key, index: 0, score: 0, answered: false, name: '' };
-        document.getElementById('quizTitle').innerText = quizzes[key].title;
-        renderQuizNameEntry();
-        document.getElementById('quizModal').classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+    function lessonFivePlan(){
+        return `<div class="lesson-plan space-y-5 mt-6 border-t pt-5"><h6 class="font-bold text-xl">Mål och redovisning</h6><p>Kombinera bländare, slutartid och fast ISO i M-läge. Ta tre egna bilder av samma motiv med olika ljushet och motivera vilket uttryck du föredrar.</p><div class="overflow-x-auto"><table class="w-full text-left"><thead><tr><th class="p-2">Minuter</th><th class="p-2">Moment</th><th class="p-2">Arbetsgång</th></tr></thead><tbody>${lessonFiveSchedule.map(row=>'<tr>'+row.map(cell=>'<td class="p-2 border-t align-top">'+cell+'</td>').join('')+'</tr>').join('')}</tbody></table></div><div class="bg-amber-50 rounded-2xl p-5"><h6 class="font-bold">Din foto-checklista</h6><ol class="list-decimal pl-6 space-y-2 mt-2"><li>Välj M, f/5,6 och fast ISO.</li><li>Ta en grundbild och anteckna alla inställningar.</li><li>Gör en mörkare bild genom kortare tid.</li><li>Gör en ljusare bild genom längre tid.</li><li>Behåll motiv, utsnitt, fokus, bländare och ISO.</li><li>Välj den bild som fungerar bäst och motivera ditt val.</li></ol></div><button onclick="openQuiz('m1l5')" class="bg-amber-700 text-white px-5 py-3 rounded-xl">Quiz om M-läge – repetition nästa lektion</button></div>`;
     }
 
-    function closeQuiz() {
-        document.getElementById('quizModal').classList.add('hidden');
-        document.body.style.overflow = 'auto';
+    const lessonSixSchedule = [
+        ["0–15", "Repetition", "Quiz om M-läge. Kort samtal: nu räcker det inte bara att bilden är rätt exponerad."],
+        ["15–35", "Komposition", "Tredjedelar, ledande linjer, perspektiv samt förgrund, motiv och bakgrund."],
+        ["35–45", "Kamerastart", "M-läge. Välj inställningar som passar motivet och kontrollera exponering, fokus och bakgrund."],
+        ["45–70", "Fotopass 1", "Samma motiv: centrering, tredjedelar och nytt perspektiv."],
+        ["70–80", "Paus", "Lägg kamerorna säkert."],
+        ["80–105", "Fotopass 2", "Ledande linjer, medveten bakgrund och egen version."],
+        ["105–125", "Urval", "Välj en bild och skriv ned både tekniska och bildmässiga val."],
+        ["125–140", "Bildsamtal", "Vad tittar du på först? Vad gör kompositionen med bilden?"],
+        ["140–150", "Utcheckning", "Säkra bilderna, reflektera och lämna utrustningen."]
+    ];
+
+    presentations.m1l6 = {
+        badge:"Lektion 6", label:"Presentation Lektion 6",
+        slides:[
+            {title:"Från inställning till bild",content:lessonSlide("Nu blir fotografen huvudpersonen","Lektion 6 · 150 minuter",["Du kan börja kontrollera bländare, slutartid och ISO.","Nu ska du också börja bestämma hur bilden byggs upp.","Målet är att kombinera teknik och bildidé – inte att lära alla kompositionsregler på en gång."])},
+            {title:"Vad är komposition?",content:lessonSlide("Hur du bygger bilden","15–20 min",["Vad ska finnas med – och vad ska lämnas utanför?", "Var placerar du huvudmotivet?", "Hur ser bakgrunden ut?", "Från vilken höjd och vinkel fotograferar du?", "Vad ser betraktaren först?"])},
+            {title:"Tredjedelsregeln",content:lessonSlide("Motivet behöver inte stå i mitten","20–25 min",["Tänk två lodräta och två vågräta linjer genom bilden.","Prova att placera viktiga delar nära linjerna eller deras möten.","Det är ett hjälpmedel, inte en regel som alltid måste följas."])},
+            {title:"Ledande linjer",content:lessonSlide("Hjälp ögat genom bilden","25–30 min",["Vägar, räcken, korridorer, skuggor och huskanter kan bilda linjer.","Fråga dig: vart leder linjen blicken?", "Försök låta linjen hjälpa huvudmotivet i stället för att dra bort uppmärksamheten."])},
+            {title:"Bakgrund och perspektiv",content:lessonSlide("Titta på hela bilden","30–35 min",["En stolpe eller ljus skylt bakom motivet kan ta över bilden.","Flytta dig en meter, gå närmare eller byt höjd innan du ändrar kamerans inställningar.","Prova lågt, högt, nära och längre bort. Perspektivet förändrar känslan."])},
+            {title:"Dagens fotoövning",content:lessonSlide("Samma motiv – sex olika bilder","45–105 min",["1. Motiv mitt i bilden.","2. Motiv enligt tredjedelsregeln.","3. Nytt perspektiv – lågt eller högt.","4. Använd en ledande linje.","5. Gör bakgrunden till ett medvetet val.","6. Din egen bästa version med teknik + komposition."])},
+            {title:"Teknik + bild",content:lessonSlide("Tänk på två saker samtidigt","Under fotograferingen",["Teknik: exponering, fokus, bländare, slutartid och ISO.","Bild: motivets placering, perspektiv, bakgrund, skärpedjup och vad ögat möter först.","Det är okej att arbeta långsamt. Målet är medvetna val."])},
+            {title:"Välj din bild",content:lessonSlide("Varför fungerar just den här?","105–125 min",["Välj en av dina sex bilder.","Anteckna bländare, slutartid och ISO.","Förklara hur du placerade motivet, hur bakgrunden fungerar och vilket perspektiv du valde.","Skriv eller berätta vad du skulle ändra vid ett nytt försök."])},
+            {title:"Bildsamtal",content:lessonSlide("Vad tittar jag på först?","125–140 min",["Visa bilden för en kamrat.","Berätta: Jag valde den här bilden eftersom…", "Kamraten svarar: Det här tittar jag på först…", "Beskriv och undersök – det är inte en tävling om rätt eller fel komposition."])},
+            {title:"Utcheckning",content:lessonSlide("Tekniken börjar bli ett verktyg","140–150 min",["Vilken kompositionsidé fungerade bäst för dig?", "Vad var svårast: kamerainställningarna eller bildbyggandet?", "Vad vill du prova annorlunda nästa gång?", "Säkra bilderna före eventuell formatering av minneskortet."])}
+        ]
+    };
+
+    function lessonSixPlan(){
+        return `<div class="lesson-plan space-y-5 mt-6 border-t pt-5">
+            <h6 class="font-bold text-xl">Mål och redovisning</h6>
+            <p>Använd kamerans inställningar mer självständigt och börja bygga bilden medvetet. Fotografera samma motiv på sex olika sätt och välj en bild där du motiverar både teknik och komposition.</p>
+            <div class="overflow-x-auto"><table class="w-full text-left"><thead><tr><th class="p-2">Minuter</th><th class="p-2">Moment</th><th class="p-2">Arbetsgång</th></tr></thead><tbody>${lessonSixSchedule.map(row=>'<tr>'+row.map(cell=>'<td class="p-2 border-t align-top">'+cell+'</td>').join('')+'</tr>').join('')}</tbody></table></div>
+            <div class="bg-amber-50 rounded-2xl p-5"><h6 class="font-bold">Fotoövning: samma motiv – sex bilder</h6><ol class="list-decimal pl-6 space-y-2 mt-2"><li>Placera motivet mitt i bilden.</li><li>Flytta motivet mot en tredjedelslinje.</li><li>Byt perspektiv – gå lågt eller fotografera ovanifrån.</li><li>Använd en linje i miljön som leder blicken.</li><li>Flytta dig så att bakgrunden hjälper bilden. Använd gärna skärpedjup medvetet.</li><li>Gör din egen bästa version där du kombinerar exponering, perspektiv, komposition och skärpedjup.</li></ol></div>
+            <div class="bg-slate-50 rounded-2xl p-5"><h6 class="font-bold">Innan du trycker av</h6><ul class="list-disc pl-6 space-y-1 mt-2"><li>Vad är mitt huvudmotiv?</li><li>Var ska det placeras?</li><li>Hur ser bakgrunden ut?</li><li>Kan jag flytta mig för att förbättra bilden?</li><li>Vilket skärpedjup vill jag ha?</li><li>Är slutartiden rimlig?</li><li>Är ISO rimligt?</li><li>Är exponeringen som jag vill ha den?</li><li>Vad kommer betraktaren att se först?</li></ul></div>
+            <p><strong>Felsökning:</strong> För mörkt – öppna bländaren, använd längre tid eller höj ISO. För ljust – mindre bländaröppning, kortare tid eller lägre ISO. Suddigt – kontrollera slutartid, fokus och kamerarörelse. Störande bakgrund – flytta dig först; ibland är det fotografen, inte kameran, som behöver ändra position.</p>
+            <p><strong>Redovisning:</strong> välj en bild. Ange bländare, slutartid och ISO. Besvara: Varför valde jag just den? Var ligger motivet? Hur fungerar bakgrunden? Vilket perspektiv använde jag? Vad skulle jag ändra nästa gång?</p>
+            <button onclick="openQuiz('m1l6')" class="bg-amber-700 text-white px-5 py-3 rounded-xl">Quiz om komposition – repetition nästa lektion</button>
+        </div>`;
     }
 
-    function renderQuizNameEntry() {
-        const body = document.getElementById('quizBody');
-        body.innerHTML = `
-            <div class="space-y-6 py-4">
-                <div class="text-center">
-                    <div class="text-5xl mb-3">✍️</div>
-                    <h4 class="text-xl font-black text-slate-900">Vad heter du?</h4>
-                    <p class="text-sm text-slate-500 mt-1">Skriv ditt namn så läraren ser vem som svarat.</p>
-                </div>
-                <input id="quizNameInput" type="text" placeholder="Förnamn Efternamn" class="w-full border border-slate-200 rounded-2xl px-5 py-4 text-center text-lg font-medium focus:outline-none focus:border-amber-500">
-                <button onclick="startQuizWithName()" class="w-full bg-slate-900 hover:bg-amber-700 text-white px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-widest transition">Starta quiz →</button>
-            </div>
-        `;
-        const input = document.getElementById('quizNameInput');
-        input.focus();
-        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') startQuizWithName(); });
-    }
+    quizzes.m1l3={title:"Lektion 3: Slutartid",desc:"Rörelse, skakning och slutartid.",icon:"🏃",questions:[
+        {prompt:"Vilken tid är kortast?",options:[{id:"a",text:"1/15 s"},{id:"b",text:"1/60 s"},{id:"c",text:"1/1000 s"},{id:"d",text:"1 s"}],correct:"c",explanation:"1/1000 sekund är mycket kort och kan hjälpa till att frysa rörelse."},
+        {prompt:"Bakgrunden är skarp men den gående personen blir utdragen. Vad är mest sannolikt?",options:[{id:"a",text:"Motivrörelse"},{id:"b",text:"Fel vitbalans"},{id:"c",text:"För högt ISO"},{id:"d",text:"Minneskortet är fullt"}],correct:"a",explanation:"När kameran är still men motivet rör sig kan motivet få rörelsespår."}
+    ]};
+    quizzes.m1l4={title:"Lektion 4: ISO",desc:"ISO, slutartid och brus.",icon:"🌙",questions:[
+        {prompt:"Vad kan ett högre ISO hjälpa dig med i svagt ljus?",options:[{id:"a",text:"Kortare slutartid"},{id:"b",text:"Längre objektiv"},{id:"c",text:"Bättre fokus automatiskt"},{id:"d",text:"Större sensor"}],correct:"a",explanation:"Högre ISO kan ge möjlighet till kortare slutartid men kan också göra brus mer synligt."},
+        {prompt:"Om du inte ser någon tydlig brusskillnad, vad gör du?",options:[{id:"a",text:"Beskriv det du faktiskt ser"},{id:"b",text:"Hitta på en skillnad"},{id:"c",text:"Radera bilderna"},{id:"d",text:"Byt kamera"}],correct:"a",explanation:"Ingen tydlig skillnad är också ett giltigt resultat."}
+    ]};
+    quizzes.m1l5={title:"Lektion 5: Manuellt läge (M)",desc:"Repetition inför lektion 6.",icon:"🎛️",questions:[
+        {prompt:"Vad styr du själv i M-läge med fast ISO?",options:[{id:"a",text:"Bara fokus"},{id:"b",text:"Bländare, slutartid och ISO"},{id:"c",text:"Bara filnamnet"},{id:"d",text:"Kameran väljer alltid bländaren"}],correct:"b",explanation:"Du väljer exponeringens tre delar själv."},
+        {prompt:"Du går från 1/125 s till 1/250 s med samma bländare och ISO. Vad händer normalt?",options:[{id:"a",text:"Bilden blir ljusare"},{id:"b",text:"Bilden blir mörkare"},{id:"c",text:"Inget händer"},{id:"d",text:"Skärpedjupet fördubblas"}],correct:"b",explanation:"Kortare tid släpper in mindre ljus."},
+        {prompt:"Vad betyder det att ljusmätaren står nära noll?",options:[{id:"a",text:"Kamerans mätning bedömer exponeringen som ungefär balanserad"},{id:"b",text:"Bilden är konstnärligt perfekt"},{id:"c",text:"Fokus är garanterat rätt"},{id:"d",text:"ISO måste vara 100"}],correct:"a",explanation:"Ljusmätaren är vägledning, inte facit för bildens uttryck."},
+        {prompt:"Varför stänger vi av Auto ISO när vi vill jämföra enbart slutartiden?",options:[{id:"a",text:"Annars kan kameran kompensera genom att ändra ISO"},{id:"b",text:"Autofokus slutar fungera"},{id:"c",text:"RAW slutar fungera"},{id:"d",text:"Objektivet zoomar"}],correct:"a",explanation:"Fast ISO gör förändringen lättare att förstå och jämföra."}
+    ]};
+    quizzes.m1l6={title:"Lektion 6: Teknik möter komposition",desc:"Bildbyggande, perspektiv och bakgrund.",icon:"📐",questions:[
+        {prompt:"Vad betyder komposition i fotografi?",options:[{id:"a",text:"Hur bilden byggs upp"},{id:"b",text:"Hur många megapixlar kameran har"},{id:"c",text:"Hur snabbt minneskortet är"},{id:"d",text:"Vilket kameramärke du använder"}],correct:"a",explanation:"Komposition handlar om hur bildelement organiseras och hur betraktarens blick leds."},
+        {prompt:"Måste huvudmotivet alltid placeras mitt i bilden?",options:[{id:"a",text:"Ja"},{id:"b",text:"Nej"}],correct:"b",explanation:"Centrering kan fungera, men motivet kan också placeras på andra sätt, till exempel nära tredjedelslinjer."},
+        {prompt:"Vad kan en ledande linje göra?",options:[{id:"a",text:"Styra blicken genom bilden"},{id:"b",text:"Höja ISO"},{id:"c",text:"Ladda batteriet"},{id:"d",text:"Göra allting skarpt"}],correct:"a",explanation:"Linjer i miljön kan hjälpa till att leda betraktarens blick mot huvudmotivet."},
+        {prompt:"Bakgrunden stör. Vad är ofta ett bra första försök?",options:[{id:"a",text:"Flytta dig eller ändra kamerahöjd"},{id:"b",text:"Byt minneskort"},{id:"c",text:"Sätt alltid ISO 3200"},{id:"d",text:"Fotografera ändå"}],correct:"a",explanation:"En liten ändring av position eller vinkel kan göra stor skillnad för bakgrunden."},
+        {prompt:"Vilket beskriver bäst lektion 6?",options:[{id:"a",text:"Teknik och komposition används tillsammans"},{id:"b",text:"Kamerainställningar spelar inte längre någon roll"},{id:"c",text:"Alla bilder ska följa exakt samma regel"},{id:"d",text:"Vi fotograferar bara i Auto"}],correct:"a",explanation:"Nu börjar tekniken bli ett verktyg för att skapa den bild du vill ha."}
+    ]};
 
-    function startQuizWithName() {
-        const input = document.getElementById('quizNameInput');
-        const name = (input.value || '').trim();
-        if (!name) {
-            input.classList.add('border-red-400');
-            input.placeholder = 'Skriv ditt namn för att fortsätta';
-            input.focus();
-            return;
-        }
-        quizState.name = name;
-        renderQuizQuestion();
-    }
+    // --- APPENS FUNKTIONER ---
+    function showSection(id,btn){document.querySelectorAll('.content-section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');}
+    function openModal(moduleId){const module=courseData.modules.find(m=>m.id===moduleId);if(!module)return;document.getElementById('modalWeeks').innerText=module.weeks;document.getElementById('modalTitle').innerText=module.title;const buttons=document.getElementById('presentationButtons');const available=module.lessons.map((_,i)=>`m${module.id}l${i+1}`).filter(k=>presentations[k]);if(available.length){document.getElementById('presentationBanner').classList.remove('hidden');buttons.innerHTML=available.map(k=>`<button onclick="openPresentation('${k}')" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-3 rounded-2xl font-bold uppercase tracking-wider text-xs">🖥️ ${presentations[k].badge}</button>`).join('');}else document.getElementById('presentationBanner').classList.add('hidden');document.getElementById('modalLessons').innerHTML=`<div class="mb-8"><h4 class="text-xs font-black text-amber-700 uppercase tracking-widest mb-2">Modulens mål</h4><div class="grid grid-cols-1 md:grid-cols-3 gap-4">${module.goals.map(g=>`<div class="bg-amber-50 p-3 rounded-xl text-xs font-bold text-amber-900 border border-amber-100">${g}</div>`).join('')}</div></div><h4 class="text-xl font-black mb-6 italic">Lektionsplanering</h4>${module.lessons.map((less,i)=>{const key=`m${module.id}l${i+1}`;const plan=less.plan==='manual'?lessonFivePlan():less.plan==='iso'?lessonFourPlan():less.plan==='composition'?lessonSixPlan():less.plan?lessonThreePlan():'';return `<div class="lesson-node mb-6"><div class="bg-white border border-slate-100 p-6 rounded-2xl shadow-sm"><div class="flex items-center justify-between gap-3 mb-2 flex-wrap"><h5 class="font-black text-slate-900">Lektion ${i+1}: ${less.title}</h5>${presentations[key]?`<button onclick="openPresentation('${key}')" class="bg-slate-900 hover:bg-amber-700 text-white px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest">🖥️ Presentation</button>`:''}</div><div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm"><div><span class="text-[10px] font-black uppercase text-slate-400 block mb-1">Teori / Genomgång</span>${less.theory}</div><div class="bg-amber-50 p-4 rounded-xl font-medium text-amber-900 border border-amber-100"><span class="text-[10px] font-black uppercase block mb-1">Praktisk Uppgift</span>${less.practical}</div></div>${plan}</div></div>`}).join('')}`;const sim=document.getElementById('simulatorContainer');module.id===1?sim.classList.remove('hidden'):sim.classList.add('hidden');if(module.id===1)setTimeout(updateSimulator,50);document.getElementById('moduleModal').classList.remove('hidden');document.body.style.overflow='hidden';}
+    function closeModal(){document.getElementById('moduleModal').classList.add('hidden');document.body.style.overflow='auto';}
 
-    function renderQuizQuestion() {
-        const quiz = quizzes[quizState.key];
-        const body = document.getElementById('quizBody');
+    let currentSlide=0,currentDeck=[];
+    function openPresentation(key){const p=presentations[key];if(!p)return;currentDeck=p.slides;currentSlide=0;document.getElementById('presBadge').innerText=p.badge;renderSlide();document.getElementById('presentationModal').classList.remove('hidden');}
+    function closePresentation(){document.getElementById('presentationModal').classList.add('hidden');}
+    function renderSlide(){const s=currentDeck[currentSlide];document.getElementById('slideTitle').innerText=s.title;document.getElementById('slideContent').innerHTML=s.content;document.getElementById('slideCounter').innerText=`Slide ${currentSlide+1} / ${currentDeck.length}`;}
+    function nextSlide(){if(currentSlide<currentDeck.length-1){currentSlide++;renderSlide();}}
+    function prevSlide(){if(currentSlide>0){currentSlide--;renderSlide();}}
+    document.addEventListener('keydown',e=>{if(!document.getElementById('presentationModal').classList.contains('hidden')){if(e.key==='ArrowRight'||e.key===' ')nextSlide();if(e.key==='ArrowLeft')prevSlide();if(e.key==='Escape')closePresentation();}});
 
-        if (quizState.index >= quiz.questions.length) {
-            quizResults.push({
-                name: quizState.name,
-                quiz: quiz.title,
-                score: quizState.score,
-                total: quiz.questions.length,
-                time: new Date().toLocaleString('sv-SE')
-            });
-            // (extern inskickning borttagen av GDPR-skäl, se kommentar ovan vid quizResults)
-            body.innerHTML = `
-                <div class="text-center space-y-6 py-8">
-                    <div class="text-6xl">🎉</div>
-                    <h4 class="text-2xl font-black text-slate-900">Bra jobbat, ${quizState.name}!</h4>
-                    <p class="text-slate-600">Du fick <span class="font-black text-amber-700">${quizState.score} av ${quiz.questions.length}</span> rätt.</p>
-                    <button onclick="closeQuiz()" class="bg-slate-900 hover:bg-amber-700 text-white px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest transition">Klar</button>
-                </div>
-            `;
-            return;
-        }
+    let quizState={key:null,index:0,score:0,answered:false,name:''};let quizResults=[];
+    function initQuizPage(){const grid=document.getElementById('quizGrid');grid.innerHTML='';Object.entries(quizzes).forEach(([key,q])=>{const c=document.createElement('div');c.className='bg-white p-7 rounded-[2rem] border border-slate-100 shadow-sm';c.innerHTML=`<div class="text-3xl mb-3">${q.icon||'🧠'}</div><h3 class="font-black text-xl">${q.title}</h3><p class="text-sm text-slate-500 my-3">${q.desc||''}</p><button class="bg-slate-900 text-white px-5 py-2 rounded-xl text-xs font-bold" onclick="openQuiz('${key}')">Starta quiz</button>`;grid.appendChild(c);});}
+    function openQuiz(key){quizState={key,index:0,score:0,answered:false,name:''};document.getElementById('quizTitle').innerText=quizzes[key].title;renderQuizNameEntry();document.getElementById('quizModal').classList.remove('hidden');document.body.style.overflow='hidden';}
+    function closeQuiz(){document.getElementById('quizModal').classList.add('hidden');document.body.style.overflow='auto';}
+    function renderQuizNameEntry(){document.getElementById('quizBody').innerHTML=`<div class="space-y-4"><p class="text-sm text-slate-600">Skriv namn eller initialer om resultatet ska kunna skiljas från andra lokalt på den här datorn.</p><input id="quizName" class="w-full border rounded-xl p-3" placeholder="Namn eller initialer"><button onclick="startQuizQuestions()" class="bg-amber-700 text-white px-5 py-3 rounded-xl font-bold">Starta</button></div>`;}
+    function startQuizQuestions(){quizState.name=document.getElementById('quizName').value.trim()||'Anonym';renderQuizQuestion();}
+    function renderQuizQuestion(){const q=quizzes[quizState.key],item=q.questions[quizState.index];document.getElementById('quizBody').innerHTML=`<div class="space-y-5"><div class="text-xs font-bold text-slate-400">Fråga ${quizState.index+1} av ${q.questions.length}</div><h4 class="text-xl font-black">${item.prompt}</h4><div class="space-y-2">${item.options.map(o=>`<button onclick="answerQuiz('${o.id}')" class="quiz-option w-full text-left border rounded-xl p-4 hover:bg-amber-50">${o.text}</button>`).join('')}</div><div id="quizFeedback"></div></div>`;}
+    function answerQuiz(id){if(quizState.answered)return;quizState.answered=true;const item=quizzes[quizState.key].questions[quizState.index],ok=id===item.correct;if(ok)quizState.score++;document.getElementById('quizFeedback').innerHTML=`<div class="mt-4 p-4 rounded-xl ${ok?'bg-green-50':'bg-amber-50'}"><strong>${ok?'Rätt!':'Inte riktigt.'}</strong> ${item.explanation}<div class="mt-4"><button onclick="nextQuizQuestion()" class="bg-slate-900 text-white px-5 py-2 rounded-xl">${quizState.index+1===quizzes[quizState.key].questions.length?'Visa resultat':'Nästa fråga'}</button></div></div>`;}
+    function nextQuizQuestion(){const total=quizzes[quizState.key].questions.length;if(quizState.index+1>=total){quizResults.push({name:quizState.name,quiz:quizzes[quizState.key].title,score:quizState.score,total,date:new Date().toLocaleString('sv-SE')});document.getElementById('quizBody').innerHTML=`<div class="text-center space-y-4"><div class="text-5xl">🎯</div><h4 class="text-2xl font-black">${quizState.score} av ${total}</h4><p>Quizet är klart. Resultatet sparas bara lokalt under den här sidvisningen.</p></div>`;}else{quizState.index++;quizState.answered=false;renderQuizQuestion();}}
+    function openResults(){const b=document.getElementById('resultsBody');b.innerHTML=quizResults.length?`<div class="space-y-3">${quizResults.map(r=>`<div class="border rounded-xl p-4"><strong>${r.name}</strong> · ${r.quiz}<br><span class="text-sm text-slate-500">${r.score}/${r.total} · ${r.date}</span></div>`).join('')}</div>`:'<p>Inga quizresultat finns ännu i den här sidvisningen.</p>';document.getElementById('resultsModal').classList.remove('hidden');}
+    function closeResults(){document.getElementById('resultsModal').classList.add('hidden');}
 
-        const q = quiz.questions[quizState.index];
-        quizState.answered = false;
-        body.innerHTML = `
-            <div class="mb-4 text-xs font-black text-slate-400 uppercase tracking-widest">${quizState.name} · Fråga ${quizState.index + 1} / ${quiz.questions.length}</div>
-            <h4 class="text-xl font-black text-slate-900 mb-6">${q.prompt}</h4>
-            <div class="space-y-3" id="quizOptions">
-                ${q.options.map(o => `<button onclick="answerQuiz('${o.id}')" data-oid="${o.id}" class="quiz-option w-full text-left bg-slate-50 hover:bg-amber-50 border border-slate-200 p-4 rounded-2xl text-sm font-medium text-slate-700 transition">${o.text}</button>`).join('')}
-            </div>
-            <div id="quizFeedback" class="mt-6 hidden"></div>
-        `;
-    }
+    let simSettings={ap:1,sh:3,iso:2};const apValues=['f/3.5','f/5.6','f/8','f/11','f/16','f/22'];const shValues=['1/1000','1/500','1/250','1/125','1/60','1/30','1/15','1/8','1s'];const isoValues=['100','200','400','800','1600','3200'];
+    function resetSimulator(){simSettings={ap:1,sh:3,iso:2};document.getElementById('inputAperture').value=1;document.getElementById('inputShutter').value=3;document.getElementById('inputISO').value=2;updateSimulator();}
+    function updateSimulator(){const c=document.getElementById('simCanvas');if(!c)return;simSettings.ap=+document.getElementById('inputAperture').value;simSettings.sh=+document.getElementById('inputShutter').value;simSettings.iso=+document.getElementById('inputISO').value;document.getElementById('valAperture').innerText=apValues[simSettings.ap];document.getElementById('valShutter').innerText=shValues[simSettings.sh];document.getElementById('valISO').innerText=isoValues[simSettings.iso];const ctx=c.getContext('2d'),w=c.width,h=c.height;ctx.clearRect(0,0,w,h);const stops=(simSettings.sh-3)+(simSettings.iso-2)-(simSettings.ap-1);const lum=Math.max(.15,Math.min(1.4,.55*Math.pow(1.4,stops)));ctx.fillStyle=`rgb(${Math.min(255,70*lum)},${Math.min(255,85*lum)},${Math.min(255,105*lum)})`;ctx.fillRect(0,0,w,h);ctx.fillStyle='#f59e0b';ctx.beginPath();ctx.arc(w/2,h/2,65,0,Math.PI*2);ctx.fill();document.getElementById('exposureIndicator').innerText='Exponering: '+(stops>1?'Ljus':stops<-1?'Mörk':'Nära normal');}
+    ['inputAperture','inputShutter','inputISO'].forEach(id=>document.getElementById(id)?.addEventListener('input',updateSimulator));
 
-    function answerQuiz(optionId) {
-        if (quizState.answered) return;
-        quizState.answered = true;
-
-        const quiz = quizzes[quizState.key];
-        const q = quiz.questions[quizState.index];
-        const correct = optionId === q.correct;
-        if (correct) quizState.score++;
-
-        document.querySelectorAll('#quizOptions .quiz-option').forEach(btn => {
-            const oid = btn.getAttribute('data-oid');
-            btn.classList.add('pointer-events-none');
-            if (oid === q.correct) {
-                btn.classList.add('bg-green-50', 'border-green-400', 'text-green-800');
-            } else if (oid === optionId) {
-                btn.classList.add('bg-red-50', 'border-red-400', 'text-red-800');
-            } else {
-                btn.classList.add('opacity-50');
-            }
-        });
-
-        const fb = document.getElementById('quizFeedback');
-        fb.classList.remove('hidden');
-        fb.innerHTML = `
-            <div class="bg-amber-50 border border-amber-100 p-4 rounded-2xl text-sm text-amber-900">
-                <div class="font-black mb-1">${correct ? '✅ Rätt!' : '❌ Inte riktigt.'}</div>
-                <div>${q.explanation}</div>
-            </div>
-            <button onclick="nextQuizQuestion()" class="mt-4 w-full bg-slate-900 hover:bg-amber-700 text-white px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest transition">
-                ${quizState.index + 1 < quiz.questions.length ? 'Nästa fråga →' : 'Se resultat'}
-            </button>
-        `;
-    }
-
-    function nextQuizQuestion() {
-        quizState.index++;
-        renderQuizQuestion();
-    }
-
-    // --- RESULTS VIEW ---
-    function openResults() {
-        renderResults();
-        document.getElementById('resultsModal').classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeResults() {
-        document.getElementById('resultsModal').classList.add('hidden');
-        document.body.style.overflow = 'auto';
-    }
-
-    function renderResults() {
-        const body = document.getElementById('resultsBody');
-        if (quizResults.length === 0) {
-            body.innerHTML = `<p class="text-center text-slate-400 text-sm py-10">Inga quiz genomförda ännu i den här sessionen.</p>`;
-            return;
-        }
-        const rows = quizResults.slice().reverse().map(r => `
-            <tr class="border-b border-slate-100">
-                <td class="py-3 px-3 font-bold text-slate-900">${r.name}</td>
-                <td class="py-3 px-3 text-slate-600">${r.quiz}</td>
-                <td class="py-3 px-3 text-center font-bold text-amber-700">${r.score}/${r.total}</td>
-                <td class="py-3 px-3 text-slate-400 text-xs whitespace-nowrap">${r.time}</td>
-            </tr>
-        `).join('');
-        body.innerHTML = `
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                    <thead>
-                        <tr class="text-left text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-200">
-                            <th class="py-2 px-3">Namn</th>
-                            <th class="py-2 px-3">Quiz</th>
-                            <th class="py-2 px-3 text-center">Poäng</th>
-                            <th class="py-2 px-3">Tid</th>
-                        </tr>
-                    </thead>
-                    <tbody>${rows}</tbody>
-                </table>
-            </div>
-            <div class="flex flex-col md:flex-row gap-3 mt-6">
-                <button onclick="exportResultsCSV()" class="flex-1 bg-amber-700 hover:bg-amber-600 text-white px-5 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest transition">⬇️ Exportera som CSV</button>
-                <button onclick="clearResults()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-600 px-5 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest transition">Rensa resultat</button>
-            </div>
-            <p class="text-xs text-slate-400 mt-4 text-center">Resultaten sparas bara i den här webbläsarfliken medan sidan är öppen – exportera som CSV för att spara dem permanent.</p>
-        `;
-    }
-
-    function exportResultsCSV() {
-        if (quizResults.length === 0) return;
-        const header = 'Namn;Quiz;Poäng;Av;Tid\n';
-        const rows = quizResults.map(r => `${r.name};${r.quiz};${r.score};${r.total};${r.time}`).join('\n');
-        const csv = header + rows;
-        const blob = new Blob(["\ufeff" + csv], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `quiz-resultat-${new Date().toISOString().slice(0,10)}.csv`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    }
-
-    function clearResults() {
-        if (confirm('Rensa alla sparade resultat i den här sessionen?')) {
-            quizResults = [];
-            renderResults();
-        }
-    }
-
-    // All required elements are above this script. Start immediately, also in previews
-    // that evaluate the script after the window load event has already occurred.
-    init();
+    function initCharts(){if(typeof Chart==='undefined')return;const tc=document.getElementById('timelineChart');if(tc)new Chart(tc,{type:'bar',data:{labels:courseData.modules.map(m=>m.title),datasets:[{data:courseData.modules.map(m=>m.lessons.length)}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});const lc=document.getElementById('lessonChart');if(lc)new Chart(lc,{type:'doughnut',data:{labels:['Genomgång','Fotografering','Paus','Urval & samtal'],datasets:[{data:[35,50,10,55]}]},options:{plugins:{legend:{labels:{color:'#fff'}}}}});}
+    function init(){const grid=document.getElementById('moduleGrid');grid.innerHTML='';courseData.modules.forEach(m=>{const card=document.createElement('div');card.className='module-card bg-white p-10 rounded-[2.5rem] border border-slate-100 cursor-pointer transition-all flex flex-col items-center text-center';card.onclick=()=>openModal(m.id);card.innerHTML=`<div class="text-5xl mb-4">${m.icon}</div><div class="text-[10px] font-black text-amber-700 uppercase tracking-widest mb-2">${m.weeks}</div><h3 class="text-2xl font-black mb-4">${m.title}</h3><p class="text-slate-500 text-sm mb-6">${m.desc}</p><div class="mt-auto bg-slate-900 text-white px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-widest">Visa planering</div>`;grid.appendChild(card);});initQuizPage();initCharts();updateSimulator();}
+    window.addEventListener('DOMContentLoaded',init);
 </script>
-
 </body>
 </html>
